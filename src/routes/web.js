@@ -15,7 +15,7 @@ router.get('/register', getRegisterPage);
 
 router.post('/create-user',postCreateUser);
 
-router.post('/login-success',postLoginUser);
+router.post('/login-authen',postLoginUser);
 
 router.get('/expense-statistic', getExpenseStatisticPage);
 
