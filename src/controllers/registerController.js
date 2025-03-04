@@ -1,102 +1,46 @@
-// const connection = require('../config/database')
-// const getRegisterPage = (req, res) => {
-//     try{
-//         res.render('register',{
-            
-//         })
-//     }catch(error){
-//         console.error("error",error)
-//         res.status(500).send("ERROR HAPPEND!")
-//     }
-// }
-
-// const postCreateUser = (req, res) => {
-//     let { username, email, phone, password, repassword } = req.body;
-//     console.log('>>>User name:', username, '>>>Email:', email, '>>>Phone:', phone, '>>>Password:', password, '>>>Repassword:', repassword);
-
-//     connection.query(
-//         `INSERT INTO 
-//         Persons (user_name, email, phone, password) 
-//         VALUES (?, ?, ?, ?)`,
-//         [username, email, phone, password],
-//         function (err, results) {
-//             if (err) {
-//                 console.error("Database error:", err);
-//                 return res.status(500).send("Lỗi khi tạo người dùng!");
-//             }
-//             console.log('>>>results = ', results);
-//             // res.send('Create user success!');
-//             res.redirect('/login');
-//         }
-//     );
-// };
-
-
-// module.exports = {
-//     getRegisterPage, 
-//     postCreateUser
-// }
-
 const connection = require('../config/database');
-const bcrypt = require('bcrypt');
 
 const getRegisterPage = (req, res) => {
     try {
-        res.render('register', {});
+        res.render('register.ejs', {});
     } catch (error) {
         console.error("Lỗi hiển thị trang đăng ký:", error);
-        res.status(500).send("Lỗi hệ thống!");
     }
 };
 
 const postCreateUser = async (req, res) => {
-    let { username, email, phone, password, repassword } = req.body;
-
+    let username = req.body.username;
+    let email = req.body.email;
+    let phone = req.body.phone;
+    let password = req.body.password;
+    let repassword = req.body.repassword;
+    
     if (!username || !email || !phone || !password || !repassword) {
-        return res.status(400).send("Vui lòng nhập đầy đủ thông tin!");
+        return res.send("Vui lòng nhập đầy đủ thông tin!");
     }
 
     if (password !== repassword) {
-        return res.status(400).send("Mật khẩu nhập lại không khớp!");
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        return res.status(400).send("Email không hợp lệ!");
-    }
-
-    const phoneRegex = /^[0-9]{9,11}$/;
-    if (!phoneRegex.test(phone)) {
-        return res.status(400).send("Số điện thoại không hợp lệ!");
+        return res.send("Mật khẩu nhập lại không khớp!");
     }
 
     try {
-        // Kiểm tra xem email đã tồn tại chưa
-        const [existingUser] = await connection.promise().query(
-            "SELECT email FROM Persons WHERE email = ?", [email]
-        );
+        let[results, field] = await connection.query(`SELECT email FROM Persons WHERE email = ?`, [email]);
 
-        if (existingUser.length > 0) {
-            return res.status(400).send("Email đã tồn tại!");
+        if (results.length > 0) {
+            return res.send("Email đã tồn tại!");
         }
 
-        // Mã hóa mật khẩu
-        const saltRounds = 10;
-        const hashedPassword = await bcrypt.hash(password, saltRounds);
-
-        await connection.promise().query(
+        await connection.query(
             `INSERT INTO Persons (user_name, email, phone, password) VALUES (?, ?, ?, ?)`,
-            [username, email, phone, hashedPassword]
+            [username, email, phone, password]
         );
 
-        console.log("User đăng ký thành công:", email);
         res.redirect('/login');
-
     } catch (error) {
         console.error("Lỗi đăng ký:", error);
-        res.status(500).send("Lỗi hệ thống!");
+        res.send("Lỗi hệ thống!");
     }
-};
+}
 
 module.exports = {
     getRegisterPage,
