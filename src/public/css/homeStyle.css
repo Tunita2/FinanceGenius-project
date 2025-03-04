@@ -1,0 +1,198 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  max-height: 100%;
+}
+
+.back-box,
+.front-box {
+  width: 70px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.back-box {
+  background-color: #f9a44c;
+  position: absolute;
+  transform: rotate(-10deg);
+}
+
+.front-box {
+  top: 8px;
+  left: 8px;
+  background-color: #4ecb71;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  transform: rotate(-10deg);
+}
+
+.logo-text {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
+.setting {
+  border-radius: 10px;
+  width: 70px;
+  height: 70px;
+}
+.fa-gear {
+  display: flex !important;
+}
+
+.card-style {
+  height: 100px;
+  background-color: #4ecb71;
+}
+
+.icon-catalog,
+.card-footer p {
+  color: white;
+  margin: 3px;
+  margin-top: 17px;
+  font-size: 19px;
+  font-family: Arial, sans-serif;
+}
+
+.plus {
+  border-radius: 20px;
+  color: #4ecb71;
+}
+
+.item {
+  text-align: center;
+}
+
+h6 {
+  margin-top: 5px;
+}
+
+.promotion {
+  margin-top: -40px;
+}
+
+.bottom-nav {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* Navigation Icons */
+.nav-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: gray;
+  font-size: 2rem;
+}
+
+.nav-icon.active {
+  color: green;
+}
+
+/* Floating Scan Button */
+.chatbot-btn {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: orange;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-btn i {
+  font-size: 2rem;
+  color: white;
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.slides {
+  display: none;
+}
+
+.slides.is-active {
+  display: block;
+}
+
+.slides img {
+  width: 100%;
+  height: 251px;
+  border-radius: 40px;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.next {
+  right: 0;
+}
+
+.prev {
+  left: 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot.is-active,
+.dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
