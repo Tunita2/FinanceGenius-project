@@ -1,14 +1,160 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="/css/expense.css">
+    <link rel="stylesheet" href="/css/responsives.css">
     <script src="https://kit.fontawesome.com/edef38b038.js" crossorigin="anonymous"></script>
     <title>FinGe</title>
 </head>
+
 <body>
-    
+    <section class="section is-medium top-bar">
+        <div class="top-bar">
+            <div class="narbar-start ">
+                <a href="http://localhost:3000/home">
+                    <i class="fa-solid fa-arrow-left button is-size-2 setting"></i>
+                </a>
+            </div>
+            <h1 class="title mt-4">Thống kê</h1>
+            <div class="narbar-end ">
+                <i class="fa-solid fa-gear button is-size-2 setting "></i>
+            </div>
+        </div>
+    </section>
+    <section class="section is-small">
+        <div class="card card-style">
+            <div class="card-footer ">
+                <a href="#" class="card-footer-item ">
+                    <h2 class="subtitle">Thu nhập</h2>
+                    <h1 class="title">10000đ</h1>
+                </a>
+                <a href="#" class="card-footer-item">
+                    <h2 class="subtitle">Chi tiêu</h2>
+                    <h1 class="title">10000đ</h1>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="section top-bar">
+        <div class="select is-rounded">
+            <select>
+                <option>Theo tuần</option>
+                <option>Theo tháng</option>
+            </select>
+        </div>
+        <div class="narbar-end">
+            <span class="icon-text">
+                <span class="icon has-text-info ">
+                    <i class="fa-solid fa-sort-down has-text-success is-size-3 mb-4"></i>
+                </span>
+                <span class="subtitle">Thu</span>
+            </span>
+            <span class="icon-text ml-5">
+                <span class="icon has-text-info ">
+                    <i class="fa-solid fa-sort-up has-text-danger is-size-3 mt-4"></i>
+                </span>
+                <span class="subtitle">Chi</span>
+            </span>
+        </div>
+    </section>
+    <section class="section mb-4">
+        <div class="collumn-chart">
+            <ul class="bars">
+                <li>
+                    <div class="bar" style="--green-percent: 50%"></div><span>T2</span>
+                </li>
+                <li>
+                    <div class="bar" style="--green-percent: 30%"></div><span>T3</span>
+                </li>
+                <li>
+                    <div class="bar" style="--green-percent: 20%"></div><span>T4</span>
+                </li>
+                <li>
+                    <div class="bar" style="--green-percent: 60%"></div><span>T5</span>
+                </li>
+                <li>
+                    <div class="bar" style="--green-percent: 80%"></div><span>T6</span>
+                </li>
+                <li>
+                    <div class="bar" style="--green-percent: 55%"></div><span>T7</span>
+                </li>
+                <li>
+                    <div class="bar" style="--green-percent: 23%"></div><span>CN</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="section">
+        <div class="tabs is-centered is-boxed is-medium">
+            <ul>
+                <li>
+                    <a>
+                        <span>Thu nhập</span>
+                    </a>
+                </li>
+                <li class="is-active">
+                    <a>
+                        <span>Chi tiêu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="title is-size-4 section">Biểu đồ danh mục</section>
+    <section class="section top-bar revision">
+        <p class="has-text-grey-dark">Chi tiêu trong 7 ngày gần đây</p>
+        <h4 class="title is-size-4">'10 tỷ đ'</h4>
+    </section>
+    <section class="section chart">
+        <div class="figure-chart">
+            <figure class="charts">
+                <div class="pie donut"></div>
+
+                <figcaption class="legends">
+                    <span>Đi lại 15%</span>
+                    <span>Cafe 70%</span>
+                    <span>Mua sắm 15%</span>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+    <section class="section">
+        <h4 class="title is-size-4">Chi tiêu gần đây</h4>
+        <div class="card mb-3">
+            <div class="card-header p-3">
+                <div class="content mr-6 m-3">
+                    <p class="title is-5">StarBucks Coffee</p>
+                    <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+                </div>
+                <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header p-3">
+                <div class="content mr-6 m-3">
+                    <p class="title is-5">StarBucks Coffee</p>
+                    <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+                </div>
+                <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header p-3">
+                <div class="content mr-6 m-3"> 
+                    <p class="title is-5">StarBucks Coffee</p>
+                    <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+                </div>
+                <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
+            </div>
+        </div>
+    </section>
+    <button class="redirect">
+        <i class="fa-solid fa-plus"></i>
+    </button>
 </body>
+
 </html>

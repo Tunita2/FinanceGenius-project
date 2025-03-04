@@ -2,10 +2,7 @@ html,
 body {
   margin: 0;
   width: 100%;
-}
-
-body {
-  height: 1500px;
+  max-height: 100%;
 }
 
 .back-box,
@@ -44,6 +41,9 @@ body {
   width: 70px;
   height: 70px;
 }
+.fa-gear {
+  display: flex !important;
+}
 
 .card-style {
   height: 100px;
@@ -74,7 +74,6 @@ h6 {
 
 .promotion {
   margin-top: -40px;
-
 }
 
 .bottom-nav {
@@ -126,69 +125,74 @@ h6 {
 .chatbot-btn i {
   font-size: 2rem;
   color: white;
-  
 }
 
 .slideshow-container {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
+  position: relative;
+  max-width: 800px;
+  margin: auto;
 }
 
 .slides {
-    display: none;
+  display: none;
 }
 
 .slides.is-active {
-    display: block;
+  display: block;
 }
 
 .slides img {
-    width: 100%;
-    height: 251px;
-    border-radius:40px
+  width: 100%;
+  height: 251px;
+  border-radius: 40px;
 }
 
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
 .next {
-    right: 0;
+  right: 0;
 }
 
 .prev {
-    left: 0;
+  left: 0;
 }
 
 .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 4px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-.dot.is-active, .dot:hover {
-    background-color: #717171;
+.dot.is-active,
+.dot:hover {
+  background-color: #717171;
 }
 
 .fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
 @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
