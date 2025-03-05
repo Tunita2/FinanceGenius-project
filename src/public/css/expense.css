@@ -236,3 +236,90 @@ section.chart {
   font-size: xx-large;
   color: #cbf1b5;
 }
+/* chart-week */
+.chart-wrapper {
+  position: relative;
+  width: 377px;
+  display: flex;
+  justify-content: center;
+}
+.chart-container {
+  position: relative;
+  width: 300px;
+  margin-left: 30px;
+  margin-bottom: -7px;
+  border: 1px solid #bbb;
+  border-top: none;
+  border-right: none;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.week-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+}
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.bar {
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.green-bar {
+  background-color: green;
+}
+.orange-bar {
+  background-color: orange;
+}
+.week-label {
+  font-size: 14px;
+  margin-top: 10px;
+}
+.v-meter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 20px 0 20px 20px;
+  list-style: none;
+  pointer-events: none;
+  z-index: 1;
+}
+.v-meter li {
+  position: absolute;
+  left: 20px;
+  right: 0;
+  border-bottom: solid 1px #1785a7;
+}
+.v-meter li div {
+  position: absolute;
+  top: -10px;
+  font-size: 12px;
+}
+.v-meter li:nth-child(1) {
+  top: 10%;
+}
+.v-meter li:nth-child(2) {
+  top: 30%;
+}
+.v-meter li:nth-child(3) {
+  top: 50%;
+}
+.v-meter li:nth-child(4) {
+  top: 70%;
+}
+.v-meter li:nth-child(5) {
+  top: 90%;
+}

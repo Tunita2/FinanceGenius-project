@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<div class="select is-rounded">
+    <select id="chart-type-select">
+        <option value="week">Theo tuần</option>
+        <option value="month">Theo tháng</option>
+    </select>
+</div>
+
+<ul class="tabs">
+    <li id="income-btn" class="">
+        <a onclick="change_to_income()">
+            <span>Thu nhập</span>
+        </a>
+    </li>
+    <li id="expense-btn" class="is-active">
+        <a onclick="change_to_expense()">
+            <span>Chi tiêu</span>
+        </a>
+    </li>
+</ul>
+
+<div id="week-section" class="collumn-chart">
+    tuan
+</div>
+<div id="month-section" class="chart-wrapper is-hidden">
+    tháng
+</div>
+
+<div id="expense-section" class="">expense</div>
+<div id="income-section" class="is-hidden">income</div>
+
+<script>
+    function toggleSection(activeSection) {
+        const sections = {
+            income: {
+                activeBtn: 'income-btn',
+                inactiveBtn: 'expense-btn',
+                activeSection: 'income-section',
+                inactiveSection: 'expense-section'
+            },
+            expense: {
+                activeBtn: 'expense-btn',
+                inactiveBtn: 'income-btn',
+                activeSection: 'expense-section',
+                inactiveSection: 'income-section'
+            },
+            week_based: {
+                activeSection: 'week-section',
+                inactiveSection: 'month-section',
+            },
+            month_based: {
+                activeSection: 'month-section',
+                inactiveSection: 'week-section',
+            },
+        };
+
+        const config = sections[activeSection];
+
+        // Xử lý các nút
+        if (config.activeBtn && config.inactiveBtn) {
+            document.getElementById(config.activeBtn).classList.add('is-active');
+            document.getElementById(config.inactiveBtn).classList.remove('is-active');
+        }
+
+        // Xử lý các section
+        document.getElementById(config.activeSection).classList.remove('is-hidden');
+        document.getElementById(config.inactiveSection).classList.add('is-hidden');
+    }
+
+    // Event listener cho select chart type
+    document.getElementById('chart-type-select').addEventListener('change', function () {
+        if (this.value === 'week') {
+            toggleSection('week_based');
+        } else if (this.value === 'month') {
+            toggleSection('month_based');
+        }
+    });
+
+    // Các hàm chuyển đổi section
+    const change_to_income = () => toggleSection('income');
+    const change_to_expense = () => toggleSection('expense');
+    const change_to_month = () => toggleSection('month_based');
+    const change_to_week = () => toggleSection('week_based');
+</script>

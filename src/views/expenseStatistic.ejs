@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/expense.css">
     <link rel="stylesheet" href="/css/responsives.css">
     <script src="https://kit.fontawesome.com/edef38b038.js" crossorigin="anonymous"></script>
+    <script src="/js/expenseStatisticController.js"></script>
     <title>FinGe</title>
 </head>
 
@@ -39,13 +40,15 @@
             </div>
         </div>
     </section>
+
     <section class="section top-bar">
         <div class="select is-rounded">
-            <select>
-                <option>Theo tuần</option>
-                <option>Theo tháng</option>
+            <select id="chart-type-select">
+                <option value="week">Theo tuần</option>
+                <option value="month">Theo tháng</option>
             </select>
         </div>
+
         <div class="narbar-end">
             <span class="icon-text">
                 <span class="icon has-text-info ">
@@ -62,7 +65,7 @@
         </div>
     </section>
     <section class="section mb-4">
-        <div class="collumn-chart">
+        <div id="week-section" class="collumn-chart ">
             <ul class="bars">
                 <li>
                     <div class="bar" style="--green-percent: 50%"></div><span>T2</span>
@@ -87,17 +90,54 @@
                 </li>
             </ul>
         </div>
+
+        <div id="month-section" class="chart-wrapper is-hidden">
+            <div class="chart-container">
+                <% const weeks=[ { name: 'Tuần 1' , green: 5, orange: 1 }, { name: 'Tuần 2' , green: 7, orange: 5 }, {
+                    name: 'Tuần 3' , green: 5, orange: 4 }, { name: 'Tuần 4' , green: 10, orange: 2 } ]; %>
+
+                    <% weeks.forEach(week=> { %>
+                        <div class="week-column">
+                            <div class="bar-group">
+                                <div class="bar green-bar" style="height: <%= week.green * 20 %>px"></div>
+                                <div class="bar orange-bar" style="height: <%= week.orange * 20 %>px"></div>
+                            </div>
+                            <div class="week-label">
+                                <%= week.name %>
+                            </div>
+                        </div>
+                        <% }); %>
+            </div>
+
+            <ul class="v-meter">
+                <li>
+                    <div>20m</div>
+                </li>
+                <li>
+                    <div>15m</div>
+                </li>
+                <li>
+                    <div>10m</div>
+                </li>
+                <li>
+                    <div>5m</div>
+                </li>
+                <li>
+                    <div>1m</div>
+                </li>
+            </ul>
+        </div>
     </section>
     <section class="section">
         <div class="tabs is-centered is-boxed is-medium">
             <ul>
-                <li>
-                    <a>
+                <li id="income-btn" class="">
+                    <a onclick="change_to_income()">
                         <span>Thu nhập</span>
                     </a>
                 </li>
-                <li class="is-active">
-                    <a>
+                <li id="expense-btn" class="is-active">
+                    <a onclick="change_to_expense()">
                         <span>Chi tiêu</span>
                     </a>
                 </li>
@@ -105,56 +145,110 @@
         </div>
     </section>
     <section class="title is-size-4 section">Biểu đồ danh mục</section>
-    <section class="section top-bar revision">
-        <p class="has-text-grey-dark">Chi tiêu trong 7 ngày gần đây</p>
-        <h4 class="title is-size-4">'10 tỷ đ'</h4>
-    </section>
-    <section class="section chart">
-        <div class="figure-chart">
-            <figure class="charts">
-                <div class="pie donut"></div>
 
-                <figcaption class="legends">
-                    <span>Đi lại 15%</span>
-                    <span>Cafe 70%</span>
-                    <span>Mua sắm 15%</span>
-                </figcaption>
-            </figure>
-        </div>
-    </section>
-    <section class="section">
-        <h4 class="title is-size-4">Chi tiêu gần đây</h4>
-        <div class="card mb-3">
-            <div class="card-header p-3">
-                <div class="content mr-6 m-3">
-                    <p class="title is-5">StarBucks Coffee</p>
-                    <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
-                </div>
-                <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
+    <div id="expense-section" class="">
+        <section class="section top-bar revision">
+            <p class="has-text-grey-dark">Chi tiêu trong 7 ngày gần đây</p>
+            <h4 class="title is-size-4">'10 tỷ đ'</h4>
+        </section>
+        <section class="section chart">
+            <div class="figure-chart">
+                <figure class="charts">
+                    <div class="pie donut"></div>
+                    <figcaption class="legends">
+                        <span>Đi lại 15%</span>
+                        <span>Cafe 70%</span>
+                        <span>Mua sắm 15%</span>
+                    </figcaption>
+                </figure>
             </div>
-        </div>
-        <div class="card mb-3">
-            <div class="card-header p-3">
-                <div class="content mr-6 m-3">
-                    <p class="title is-5">StarBucks Coffee</p>
-                    <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+        </section>
+        <section class="section">
+            <h4 class="title is-size-4">Chi tiêu gần đây</h4>
+            <div class="card mb-3">
+                <div class="card-header p-3">
+                    <div class="content mr-6 m-3">
+                        <p class="title is-5">StarBuck coffee</p>
+                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+                    </div>
+                    <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
                 </div>
-                <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
             </div>
-        </div>
-        <div class="card mb-3">
-            <div class="card-header p-3">
-                <div class="content mr-6 m-3">
-                    <p class="title is-5">StarBucks Coffee</p>
-                    <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+            <div class="card mb-3">
+                <div class="card-header p-3">
+                    <div class="content mr-6 m-3">
+                        <p class="title is-5">Highligh coffee</p>
+                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+                    </div>
+                    <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
                 </div>
-                <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
             </div>
-        </div>
-    </section>
+            <div class="card mb-3">
+                <div class="card-header p-3">
+                    <div class="content mr-6 m-3">
+                        <p class="title is-5">Gà KEC</p>
+                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+                    </div>
+                    <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="income-section" class="is-hidden">
+        <section class="section top-bar revision">
+            <p class="has-text-grey-dark">Thu nhập trong 7 ngày gần đây</p>
+            <h4 class="title is-size-4">'+100tỷ đ'</h4>
+        </section>
+        <section class="section chart">
+            <div class="figure-chart">
+                <figure class="charts">
+                    <div class="pie donut"></div>
+                    <figcaption class="legends">
+                        <span>Đi lại 15%</span>
+                        <span>Cafe 70%</span>
+                        <span>Mua sắm 15%</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+        <section class="section">
+            <h4 class="title is-size-4">Thu nhập gần đây</h4>
+            <div class="card mb-3">
+                <div class="card-header p-3">
+                    <div class="content mr-6 m-3">
+                        <p class="title is-5">Lương phụ huynh</p>
+                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+                    </div>
+                    <h3 class="is-size-3 ml-2 mt-2">+500000đ</h3>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header p-3">
+                    <div class="content mr-6 m-3">
+                        <p class="title is-5">Lương phụ huynh</p>
+                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+                    </div>
+                    <h3 class="is-size-3 ml-2 mt-2">+500000đ</h3>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header p-3">
+                    <div class="content mr-6 m-3">
+                        <p class="title is-5">Lương phụ huynh</p>
+                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+                    </div>
+                    <h3 class="is-size-3 ml-2 mt-2">+500000đ</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <button class="redirect">
         <i class="fa-solid fa-plus"></i>
     </button>
+
+
 </body>
 
 </html>
