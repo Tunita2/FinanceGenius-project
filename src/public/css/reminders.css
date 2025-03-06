@@ -1,0 +1,233 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.container-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.top-bar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #165b33;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  z-index: 10;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.top-bar button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.top-bar button:hover {
+  opacity: 0.8;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content {
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  border-top: solid 1px #e0e0e0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.content h4 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.cancel {
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.cancel:hover {
+  color: darkred;
+}
+
+.btn-save {
+  width: 100%;
+  background-color: #0d5727;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-save:hover {
+  background-color: #08441b;
+}
+
+.form-control,
+.form-select {
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tabs */
+.filter-tabs {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-tabs button {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  background-color: #e8f5e9;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-tabs button.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.filter-tabs button:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Reminder List */
+.reminder-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.reminder-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.reminder-item:hover {
+  background-color: #f8f8f8;
+}
+
+.reminder-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.reminder-item .details {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.reminder-item .details p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.reminder-item .details .date-amount {
+  color: #6c757d;
+  font-size: 12px;
+}
+
+/* Action Icons */
+.action-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.action-icons i {
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.action-icons i:hover {
+  color: #4caf50;
+}
+
+/* Add Reminder Button */
+.btn-add-reminder {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #165b33;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add-reminder:hover {
+  background-color: #0d5727;
+}
+
+/* Additional Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1000;
+}
+
+.notification.show {
+  display: block;
+}
