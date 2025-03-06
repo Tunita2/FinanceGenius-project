@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/homeStyle.css">
     <link rel="stylesheet" href="/css/responsives.css">
     <script src="https://kit.fontawesome.com/edef38b038.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/homePage.controller.js"></script>
+    <script type="text/javascript" src="/js/homeController.js"></script>
     <title>FinGe</title>
 </head>
 
@@ -21,7 +21,9 @@
             </div>
         </div>
         <div class="narbar-end ">
-            <i class="fa-solid fa-gear button is-size-2 setting "></i>
+            <a href="/setting">
+                <i class="fa-solid fa-gear button is-size-2 setting "></i>
+            </a>
         </div>
     </nav>
     <div class="content ml-4">
@@ -40,49 +42,31 @@
                 <h1 class="icon-catalog"><i class="fa-solid fa-money-bill-1-wave"></i></h1>
                 <p>Nạp tiền</p>
             </a>
-            <a href="#" class="card-footer-item">
-                <h1 class="icon-catalog"><i class="fa-solid fa-clock-rotate-left"></i></h1>
-                <p>Lịch sử</p>
-            </a>
         </div>
     </div>
     <section class="section is-large">
-        <h4 class="title is-4">Danh sách thanh toán</h4>
-        <div class="columns is-mobile mb-4">
+        <h4 class="title is-4">Tiện ích</h4>
+        <div class="columns is-mobile mb-6">
             <div class="column item">
-                <i class="fa-solid fa-bolt-lightning" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Tiền điện</h6>
+                <i class="fa-solid fa-tent-arrow-left-right is-size-1 has-text-success"></i>
+                <h6 class="title is-6">Giao dịch</h6>
             </div>
             <div class="column item">
-                <i class="fa-solid fa-wifi" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Internet</h6>
-            </div>
-            <div class="column item">
-                <i class="fa-solid fa-car-side" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Đi lại</h6>
-            </div>
-            <div class="column item">
-                <i class="fa-solid fa-mobile-screen-button" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Nạp điện thoại</h6>
+                <i class="fa-solid fa-clock-rotate-left is-size-1"></i>
+                <h6 class="title is-6">Lịch sử</h6>
             </div>
         </div>
         <div class="columns is-mobile">
             <div class="column item">
-                <i class="fa-solid fa-cart-plus" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Mua sắm</h6>
+                <i class="fa-solid fa-piggy-bank is-size-1 has-text-danger"></i>
+                <h6 class="title is-6">Quỹ tiết kiệm</h6>
             </div>
             <div class="column item">
-                <i class="fa-solid fa-landmark" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Vay tiền</h6>
+                <a href="/view-reminders"><i class="fa-solid fa-note-sticky is-size-1 has-text-warning"></i></a>
+                </i>
+                <h6 class="title is-6">Lời nhắc</h6>
             </div>
-            <div class="column item">
-                <i class="fa-solid fa-piggy-bank" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Tiết kiệm</h6>
-            </div>
-            <div class="column item">
-                <i class="fa-solid fa-ellipsis" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Xem tất cả</h6>
-            </div>
+
         </div>
     </section>
 

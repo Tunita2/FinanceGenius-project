@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/setting.css">
+    <link rel="stylesheet" href="/css/responsives.css">
+    <script src="https://kit.fontawesome.com/edef38b038.js" crossorigin="anonymous"></script>
+    <script src="/js/setting.js"></script>
+    <script src="/js/FAQs.js"></script>
+    <title>FinGe</title>
+</head>
+
+<body>
+    <section class="section">
+        <div class="top-bar ">
+            <div class="narbar-start">
+                <i onclick="history.back()" class="fa-solid fa-arrow-left button setting is-size-2"></i>
+            </div>
+            <p class="title is-4 m-3">Câu hỏi thường gặp</p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="control ">
+            <input class="input is-large" placeholder="Nhập...." />
+        </div>
+    </section>
+    <section class="section">
+        <h4 class="title is-4">Mẫu câu hỏi</h4>
+        <h6 class="subtitle is-6 has-text-grey">Được hỏi nhiều nhất...</h6>
+    </section>
+    <section class="section">
+        <% const mostQAs=[ { question: 'Tôi có thể liên lạc với bạn bằng cách nào nếu tôi có bất kỳ câu hỏi nào?' ,
+            answer: 'Bạn có thể liên hệ với chúng tôi qua email hoặc số điện thoại...' }, {
+            question: 'Thay đổi số điện thoại' , answer: 'Dễ lắm, làm theo các bước là được!' }, {
+            question: 'Cách làm giàu' , answer: 'Người giàu thường hay tiêu nhiều tiền' }, ]; %>
+            <% mostQAs.forEach(QA=> { %>
+                <div class="mb-2">
+                    <div class="is-flex is-align-items-center question" onclick="toggleAnswer(event)"
+                        style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); cursor: pointer;">
+                        <span class="icon has-background-grey-lighter pt-6 pb-6 pl-5 pr-5 mr-3">
+                            <i class="fas fa-plus has-text-grey"></i>
+                        </span>
+                        <p class="is-size-5">
+                            <%= QA.question%>
+                        </p>
+                    </div>
+                    <div class="m-3 answer" style="display: none;">
+                        <p class="is-size-6 has-text-grey">
+                            <%= QA.answer%>
+                        </p>
+                    </div>
+                </div>
+                <% }); %>
+    </section>
+
+    <section class="section">
+        <h6 class="subtitle is-6 has-text-grey">Vấn đề gây nhức nhối...</h6>
+    </section>
+    <section class="section">
+        <% const hardQAs=[ { question: 'Tôi có thể liên lạc với bạn bằng cách nào nếu tôi có bất kỳ câu hỏi nào?' ,
+            answer: 'Bạn có thể liên hệ với chúng tôi qua email hoặc số điện thoại...' }, {
+            question: 'Thay đổi số điện thoại' , answer: 'Dễ lắm, làm theo các bước là được!' }, {
+            question: 'Cách làm giàu' , answer: 'Người giàu thường hay tiêu nhiều tiền' }, ]; %>
+            <% hardQAs.forEach(QA=> { %>
+                <div class="mb-2">
+                    <div class="is-flex is-align-items-center question" onclick="toggleAnswer(event)"
+                        style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); cursor: pointer;">
+                        <span class="icon has-background-grey-lighter pt-6 pb-6 pl-5 pr-5 mr-3">
+                            <i class="fas fa-plus has-text-grey"></i>
+                        </span>
+                        <p class="is-size-5">
+                            <%= QA.question%>
+                        </p>
+                    </div>
+                    <div class="m-3 answer" style="display: none;">
+                        <p class="is-size-6 has-text-grey">
+                            <%= QA.answer%>
+                        </p>
+                    </div>
+                </div>
+                <% }); %>
+    </section>
+</body>
+
+</html>

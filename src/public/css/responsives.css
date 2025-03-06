@@ -10,3 +10,6 @@
     width: 100%;
   }
 }
+section {
+  padding: 1rem 1.5rem !important;
+}
