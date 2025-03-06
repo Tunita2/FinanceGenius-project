@@ -25,50 +25,62 @@
                 <a href="/view-reminders" class="cancel">Hủy</a>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">Tên khoản thanh toán</label>
-                <input type="text" id="name" class="form-control">
-            </div>
+            <form action="/update-reminder" method="POST">
+                <div class="mb-3">
+                    <input type="text" id="id" class="form-control" name="id" value="<%= reminderEdit.id %>">
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Số tiền</label>
-                <input type="text" id="amount" class="form-control">
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Tên khoản thanh toán</label>
+                    <input type="text" id="name" class="form-control" name="reminderName"
+                        value="<%= reminderEdit.payment_account_name %>">
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Ngày đến hạn</label>
-                <input type="date" id="dueDate" class="form-control">
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Số tiền</label>
+                    <input type="text" id="amount" class="form-control" name="amount"
+                        value=" <%= reminderEdit.amount %>">
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Tần suất</label>
-                <select id="frequency" class="form-select">
-                    <option value="once">Một lần</option>
-                    <option value="daily">Hàng ngày</option>
-                    <option value="weekly">Hàng tuần</option>
-                    <option value="monthly">Hàng tháng</option>
-                </select>
-            </div>
+                <div class=" mb-3">
+                    <label class="form-label">Ngày đến hạn</label>
+                    <input type="date" id="dueDate" class="form-control" name="dueDate"
+                        value="<%= reminderEdit.due_date ? new Date(reminderEdit.due_date).toISOString().split('T')[0] : '' %>">
 
-            <div class="mb-3">
-                <label class="form-label">Phương thức thanh toán</label>
-                <select id="paymentMethod" class="form-select">
-                    <option value="e-wallet">Ví điện tử</option>
-                    <option value="bank-card">Thẻ ngân hàng</option>
-                    <option value="cash">Tiền mặt</option>
-                </select>
-            </div>
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Thông báo</label>
-                <select id="notification" class="form-select">
-                    <option value="1-day">1 ngày trước</option>
-                    <option value="3-days">3 ngày trước</option>
-                    <option value="1-week">1 tuần trước</option>
-                </select>
-            </div>
+                <div class=" mb-3">
+                    <label class="form-label">Tần suất</label>
+                    <select id="frequency" class="form-select" name="frequency" value="<%= reminderEdit.frequency %>">
+                        <option value="Một lần">Một lần</option>
+                        <option value="Hàng ngày">Hàng ngày</option>
+                        <option value="Hàng tuần">Hàng tuần</option>
+                        <option value="Hàng tháng">Hàng tháng</option>
+                    </select>
+                </div>
 
-            <button class="btn btn-save" onclick="saveReminder()">Lưu</button>
+                <div class="mb-3">
+                    <label class="form-label">Phương thức thanh toán</label>
+                    <select id="paymentMethod" class="form-select" name="reminderMethod"
+                        value="<%= reminderEdit.payment_method %>">
+                        <option value="Ví điện tử">Ví điện tử</option>
+                        <option value="Thẻ ngân hàng">Thẻ ngân hàng</option>
+                        <option value="Tiền mặt">Tiền mặt</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Thông báo</label>
+                    <select id="notification" class="form-select" name="reminderNotification"
+                        value="<%= reminderEdit.notification_time %>">
+                        <option value="1 ngày trước">1 ngày trước</option>
+                        <option value="3 ngày trước">3 ngày trước</option>
+                        <option value="1 tuần trước">1 tuần trước</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-save" onclick="saveReminder()" type="submit">Lưu</button>
+            </form>
         </div>
     </div>
     <script src="/js/reminderScript.js"></script>

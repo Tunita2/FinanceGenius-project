@@ -231,3 +231,57 @@ body {
 .notification.show {
     display: block;
 }
+
+#id {
+    display: none;
+}
+
+
+.reminder-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-item strong {
+    font-size: 16px;
+    color: #333;
+    display: block;
+}
+
+.reminder-item .fa-trash {
+    color: red;
+}
+
+.reminder-item .reminder-icon a:hover {
+    transform: scale(1.1);
+}
+
+.reminder-item .reminder-icon a {
+    margin-left: 10px;
+    font-size: 18px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.reminder-icon {
+    margin-right: 10px;
+}
+
+.reminder-icon button {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+}
+
+.d-none {
+    display: none;
+}
+
+.reminder-icon form {
+    display: inline-block;
+}

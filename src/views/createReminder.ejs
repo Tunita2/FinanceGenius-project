@@ -26,50 +26,55 @@
                 <a href="#" class="cancel">Hủy</a>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">Tên khoản thanh toán</label>
-                <input type="text" id="reminder-name" class="form-control" placeholder="Nhập tên khoản thanh toán">
-            </div>
+            <form action="/create-reminder" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Tên khoản thanh toán</label>
+                    <input type="text" id="reminder-name" class="form-control" placeholder="Nhập tên khoản thanh toán"
+                        name="reminderName">
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Số tiền</label>
-                <input type="number" id="reminder-amount" class="form-control" placeholder="Nhập số tiền">
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Số tiền</label>
+                    <input type="number" id="reminder-amount" class="form-control" placeholder="Nhập số tiền"
+                        name="amount">
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Ngày đến hạn</label>
-                <input type="date" id="reminder-date" class="form-control">
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Ngày đến hạn</label>
+                    <input type="date" id="reminder-date" class="form-control" name="dueDate"
+                        value="<%= new Date().toISOString().split('T')[0] %>">
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Tần suất</label>
-                <select id="reminder-frequency" class="form-select">
-                    <option>Một lần</option>
-                    <option>Hàng ngày</option>
-                    <option>Hàng tuần</option>
-                    <option>Hàng tháng</option>
-                </select>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Tần suất</label>
+                    <select id="reminder-frequency" class="form-select" name="frequency">
+                        <option selected value="Một lần">Một lần</option>
+                        <option value="Hàng ngày">Hàng ngày</option>
+                        <option value="Hàng tuần">Hàng tuần</option>
+                        <option value="Hàng tháng">Hàng tháng</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Phương thức thanh toán</label>
-                <select id="reminder-method" class="form-select">
-                    <option>Ví điện tử</option>
-                    <option>Thẻ ngân hàng</option>
-                    <option>Tiền mặt</option>
-                </select>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Phương thức thanh toán</label>
+                    <select id="reminder-method" class="form-select" name="reminderMethod">
+                        <option selected value="Ví điện tử">Ví điện tử</option>
+                        <option value="Thẻ ngân hàng">Thẻ ngân hàng</option>
+                        <option value="Tiền mặt">Tiền mặt</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Thông báo</label>
-                <select id="reminder-notification" class="form-select">
-                    <option>1 ngày trước</option>
-                    <option>3 ngày trước</option>
-                    <option>1 tuần trước</option>
-                </select>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Thông báo</label>
+                    <select id="reminder-notification" class="form-select" name="reminderNotification">
+                        <option selected value="1 ngày trước">1 ngày trước</option>
+                        <option value="3 ngày trước">3 ngày trước</option>
+                        <option value="1 tuần trước">1 tuần trước</option>
+                    </select>
+                </div>
 
-            <button class="btn btn-save">Lưu</button>
+                <button class="btn btn-save" type="submit">Lưu</button>
+            </form>
         </div>
     </div>
     <script src="/js/reminderScript.js"></script>

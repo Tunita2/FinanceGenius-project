@@ -9,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../CSS/reminders.css">
-
 </head>
 
 <body>
@@ -26,13 +25,44 @@
             <button id="completed-tab">Hoàn thành</button>
         </div>
 
-        <div class="reminder-list" id="reminderList"></div>
+        <!-- Danh sách hóa đơn -->
+        <div class="reminder-list" id="reminderList">
+            <% listReminder.forEach(function(reminder){ %>
+                <div class="reminder-item">
+                    <div class="reminder-list-header">
+                        <strong>
+                            <%= reminder.payment_account_name %> - <%= reminder.amount %> VND
+                        </strong>
+                        <small>
+                            <%= reminder.due_date.toISOString().split('T')[0] %>
+                        </small>
+                    </div>
+                    <div class="reminder-icon">
+                        <a href="/sucess-reminder/<%= reminder.id %>"><i class="fas fa-check text-success"></i></a>
+                        <a href="/update-reminder/<%= reminder.id %>"><i
+                                class="fas fa-pencil-alt text-warning ms-2"></i></a>
+                        <!-- <a href="/delete-reminder/<%= reminder.id %>" onclick="return confirm('Xóa lời nhắc này?')"><i
+                                class="fa-solid fa-trash"></i></a> -->
+                        <!-- <button onclick="deleteReminder(reminder.id)"><i class="fa-solid fa-trash"></i></button> -->
+                        <form action="/delete-reminder" method="POST" id="deleteForm-<%= reminder.id %>">
+                            <input type="text" name="reminderId" value="<%= reminder.id %>" class="d-none">
+                            <a href="#"
+                                onclick="document.getElementById('deleteForm-<%= reminder.id %>').submit(); return false;">
+                                <i class="fa-solid fa-trash text-danger"></i>
+                            </a>
+                        </form>
 
-        <button class="btn-add-reminder" onclick="window.location.href='/view-reminders/create-reminder'">+ Thêm lời
-            nhắc</button>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+
+        <button class="btn-add-reminder" onclick="window.location.href='/view-reminders/create-reminder'">
+            + Thêm lời nhắc
+        </button>
     </div>
-    <script src="/js/reminderScript.js"></script>
 
+    <script src="/js/reminderScript.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
