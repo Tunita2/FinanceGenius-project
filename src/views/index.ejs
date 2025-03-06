@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Biểu Đồ Theo Tuần</title>
+    <style>
+        .week-based-chart {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 300px;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .week-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 60px;
+        }
+
+        .week-collumn {
+            width: 30px;
+            margin-bottom: 10px;
+        }
+
+        .green-week-collumn {
+            background-color: green;
+        }
+
+        .orange-week-collumn {
+            background-color: orange;
+        }
+
+        .week-label {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="week-based-chart">
+        <% const weeks=[ { name: 'Tuần 1' , green: 5, orange: 1 }, { name: 'Tuần 2' , green: 7, orange: 5 }, {
+            name: 'Tuần 3' , green: 5, orange: 4 }, { name: 'Tuần 4' , green: 10, orange: 2 } ]; %>
+
+            <% weeks.forEach(week=> { %>
+                <div class="week-column">
+                    <div class="week-collumn green-week-collumn" style="height: <%= week.green * 20 %>px"></div>
+                    <div class="week-collumn orange-week-collumn" style="height: <%= week.orange * 20 %>px"></div>
+                    <div class="week-label">
+                        <%= week.name %>
+                    </div>
+                </div>
+                <% }); %>
+    </div>
+</body>
+
+</html>

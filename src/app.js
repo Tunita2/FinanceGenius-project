@@ -36,5 +36,5 @@ app.use(session({
 
 
 app.listen(port, hostname, () =>{
-    console.log(`Server is running at http://localhost:${port}/register`);
+    console.log(`Server is running at http://localhost:${port}/expense-statistic`);
 })
