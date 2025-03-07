@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+}
+
+.chart-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.targets,
+.transactions {
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-btn {
+    color: blue;
+    cursor: pointer;
+}
+
+.target-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.target-item {
+    background: #eef;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    margin: 5px;
+}
+
+.info-box {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 10px 0;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.scan-btn {
+    background: orange;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.info-box {
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: gray;
+}
+
+.info-box i {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: block;
+    color: #888;
+    /* Màu xám nhạt giống giao diện */
+}
+
+.target-item i {
+    font-size: 24px;
+    color: #555;
+    /* Màu xám đậm hơn một chút cho icon */
+}
+
+.target-item .content {
+    font-size: 14px;
+    /* Chữ nhỏ hơn */
+    margin-top: 5px;
+    color: #333;
+    /* Màu tối hơn để dễ đọc */
+}
+
+.target-item .money {
+    font-size: 12px;
+    /* Chữ nhỏ hơn */
+    color: #999;
+    /* Màu xám nhạt cho số tiền */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Overlay nền đen mờ */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    /* Làm mờ nền */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 35px;
+    color: red;
+    margin-right: 8px;
+}
+
+form {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+input,
+select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #2d5f2d;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #244d24;
+}
+
+.goal-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.goal-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+    margin-right: 10px;
+}
+
+.goal-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.goal-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    display: inline-block;
+    text-align: left;
+}
+
+.goal-money {
+    font-size: 14px;
+    color: #333;
+    float: right;
+}
+
+.goal-progress {
+    font-size: 12px;
+    color: #777;
+    display: flex;
+    text-align: right;
+    float: right;
+}
+
+.goal-dates {
+    display: inline;
+    font-size: 12px;
+    color: #999;
+    text-align: left;
+    float: left;
+}
+
+.goal-menu {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    font-size: 18px;
+    color: #888;
+    cursor: pointer;
+}
