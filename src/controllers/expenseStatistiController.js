@@ -26,17 +26,33 @@ const getExpenseStatisticPage = async(req, res) => {
 }   
 const getAddExpensePage = async(req,res) => {
     try{
-        res.render('addExpense',{
-
-        })
+        res.render('addExpense',{})
     }catch(error){
         console.error(error)
         res.status(500).send("ERROR HAPPEND!")
     }
 }
 
+const postAddExpensePage = async(req, res) => {
+    try {
+        let {money, totalStatus, note, date} = req.body; 
+        const userId = req.session.storedId ;
+        if (!userId) {
+            return res.redirect('/login');
+        }
+        await connection.query(`
+           INSERT INTO total_list(title, money, money_status, date_now, user_id) 
+           VALUES (?, ?, ?, ?, ?)`,[note, money, totalStatus, date, userId ]
+        );
+        res.redirect('/expense-statistic')
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Lỗi khi tạo giao dịch!");
+    }
+}
 module.exports = {
     getExpenseStatisticPage,
     getAddExpensePage,
+    postAddExpensePage
 
 }
