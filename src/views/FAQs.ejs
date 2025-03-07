@@ -10,81 +10,148 @@
     <script src="https://kit.fontawesome.com/edef38b038.js" crossorigin="anonymous"></script>
     <script src="/js/setting.js"></script>
     <script src="/js/FAQs.js"></script>
-    <title>FinGe</title>
+    <title>FinGe - FAQs</title>
 </head>
 
 <body>
     <section class="section">
-        <div class="top-bar ">
+        <div class="top-bar">
             <div class="narbar-start">
                 <i onclick="history.back()" class="fa-solid fa-arrow-left button setting is-size-2"></i>
             </div>
             <p class="title is-4 m-3">Câu hỏi thường gặp</p>
         </div>
     </section>
+
     <section class="section">
-        <div class="control ">
-            <input class="input is-large" placeholder="Nhập...." />
+        <form action="/setting/FAQs/search" method="GET">
+            <div class="control">
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input is-large" name="query" placeholder="Nhập từ khóa tìm kiếm..."
+                            value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>" />
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-info is-large">
+                            <span class="icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <% if (typeof searchResults !== 'undefined' && searchResults.length > 0) { %>
+    <section class="section">
+        <h4 class="title is-4">Kết quả tìm kiếm</h4>
+        <h6 class="subtitle is-6 has-text-grey">Tìm thấy <%= searchResults.length %> kết quả cho "<%= searchQuery %>"
+        </h6>
+
+        <% searchResults.forEach(qa => { %>
+        <div class="mb-2">
+            <div class="is-flex is-align-items-center question" onclick="toggleAnswer(event)"
+                style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); cursor: pointer;">
+                <span class="icon has-background-grey-lighter pt-6 pb-6 pl-5 pr-5 mr-3">
+                    <i class="fas fa-plus has-text-grey"></i>
+                </span>
+                <p class="is-size-5">
+                    <%= qa.question %>
+                </p>
+            </div>
+            <div class="m-3 answer" style="display: none;">
+                <p class="is-size-6 has-text-grey">
+                    <%= qa.answer %>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+    </section>
+    <% } else if (typeof searchResults !== 'undefined' && searchResults.length === 0) { %>
+    <section class="section">
+        <div class="notification is-warning">
+            <p>Không tìm thấy kết quả nào cho "<%= searchQuery %>". Vui lòng thử lại với từ khóa khác.</p>
         </div>
     </section>
+    <% } %>
+
+    <% if (typeof searchResults === 'undefined') { %>
     <section class="section">
         <h4 class="title is-4">Mẫu câu hỏi</h4>
         <h6 class="subtitle is-6 has-text-grey">Được hỏi nhiều nhất...</h6>
     </section>
     <section class="section">
-        <% const mostQAs=[ { question: 'Tôi có thể liên lạc với bạn bằng cách nào nếu tôi có bất kỳ câu hỏi nào?' ,
-            answer: 'Bạn có thể liên hệ với chúng tôi qua email hoặc số điện thoại...' }, {
-            question: 'Thay đổi số điện thoại' , answer: 'Dễ lắm, làm theo các bước là được!' }, {
-            question: 'Cách làm giàu' , answer: 'Người giàu thường hay tiêu nhiều tiền' }, ]; %>
-
-            <% mostQAs.forEach(QA=> { %>
-                <div class="mb-2">
-                    <div class="is-flex is-align-items-center question" onclick="toggleAnswer(event)"
-                        style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); cursor: pointer;">
-                        <span class="icon has-background-grey-lighter pt-6 pb-6 pl-5 pr-5 mr-3">
-                            <i class="fas fa-plus has-text-grey"></i>
-                        </span>
-                        <p class="is-size-5">
-                            <%= QA.question%>
-                        </p>
-                    </div>
-                    <div class="m-3 answer" style="display: none;">
-                        <p class="is-size-6 has-text-grey">
-                            <%= QA.answer%>
-                        </p>
-                    </div>
-                </div>
-                <% }); %>
+        <% if (mostQAs && mostQAs.length > 0) { %>
+        <% mostQAs.forEach(qa => { %>
+        <div class="mb-2">
+            <div class="is-flex is-align-items-center question" onclick="toggleAnswer(event)"
+                style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); cursor: pointer;">
+                <span class="icon has-background-grey-lighter pt-6 pb-6 pl-5 pr-5 mr-3">
+                    <i class="fas fa-plus has-text-grey"></i>
+                </span>
+                <p class="is-size-5">
+                    <%= qa.question %>
+                </p>
+            </div>
+            <div class="m-3 answer" style="display: none;">
+                <p class="is-size-6 has-text-grey">
+                    <%= qa.answer %>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+        <% } else { %>
+        <p class="has-text-grey">Không có câu hỏi nào trong danh mục này.</p>
+        <% } %>
     </section>
 
     <section class="section">
         <h6 class="subtitle is-6 has-text-grey">Vấn đề gây nhức nhối...</h6>
     </section>
     <section class="section">
-        <% const hardQAs=[ { question: 'Tôi có thể liên lạc với bạn bằng cách nào nếu tôi có bất kỳ câu hỏi nào?' ,
-            answer: 'Bạn có thể liên hệ với chúng tôi qua email hoặc số điện thoại...' }, {
-            question: 'Thay đổi số điện thoại' , answer: 'Dễ lắm, làm theo các bước là được!' }, {
-            question: 'Cách làm giàu' , answer: 'Người giàu thường hay tiêu nhiều tiền' }, ]; %>
-            
-            <% hardQAs.forEach(QA=> { %>
-                <div class="mb-2">
-                    <div class="is-flex is-align-items-center question" onclick="toggleAnswer(event)"
-                        style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); cursor: pointer;">
-                        <span class="icon has-background-grey-lighter pt-6 pb-6 pl-5 pr-5 mr-3">
-                            <i class="fas fa-plus has-text-grey"></i>
-                        </span>
-                        <p class="is-size-5">
-                            <%= QA.question%>
-                        </p>
-                    </div>
-                    <div class="m-3 answer" style="display: none;">
-                        <p class="is-size-6 has-text-grey">
-                            <%= QA.answer%>
-                        </p>
-                    </div>
-                </div>
-                <% }); %>
+        <% if (hardQAs && hardQAs.length > 0) { %>
+        <% hardQAs.forEach(qa => { %>
+        <div class="mb-2">
+            <div class="is-flex is-align-items-center question" onclick="toggleAnswer(event)"
+                style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); cursor: pointer;">
+                <span class="icon has-background-grey-lighter pt-6 pb-6 pl-5 pr-5 mr-3">
+                    <i class="fas fa-plus has-text-grey"></i>
+                </span>
+                <p class="is-size-5">
+                    <%= qa.question %>
+                </p>
+            </div>
+            <div class="m-3 answer" style="display: none;">
+                <p class="is-size-6 has-text-grey">
+                    <%= qa.answer %>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+        <% } else { %>
+        <p class="has-text-grey">Không có câu hỏi nào trong danh mục này.</p>
+        <% } %>
     </section>
+    <% } %>
+
+    <script>
+        function toggleAnswer(event) {
+            const questionDiv = event.currentTarget;
+            const answerDiv = questionDiv.nextElementSibling;
+            const iconElement = questionDiv.querySelector('.fas');
+
+            if (answerDiv.style.display === 'none') {
+                answerDiv.style.display = 'block';
+                iconElement.classList.remove('fa-plus');
+                iconElement.classList.add('fa-minus');
+            } else {
+                answerDiv.style.display = 'none';
+                iconElement.classList.remove('fa-minus');
+                iconElement.classList.add('fa-plus');
+            }
+        }
+    </script>
 </body>
 
 </html>

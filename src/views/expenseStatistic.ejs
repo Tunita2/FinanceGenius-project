@@ -16,7 +16,7 @@
     <section class="section is-medium top-bar">
         <div class="top-bar">
             <div class="narbar-start ">
-                <i onclick="history.back()" class="fa-solid fa-arrow-left button is-size-2 setting"></i>
+                <i onclick="window.location.href='/'" class="fa-solid fa-arrow-left button is-size-2 setting"></i>
             </div>
             <h1 class="title mt-4">Thống kê</h1>
             <div class="narbar-end ">
@@ -96,17 +96,17 @@
                 <% const weeks=[ { name: 'Tuần 1' , green: 5, orange: 1 }, { name: 'Tuần 2' , green: 7, orange: 5 }, {
                     name: 'Tuần 3' , green: 5, orange: 4 }, { name: 'Tuần 4' , green: 10, orange: 2 } ]; %>
 
-                    <% weeks.forEach(week=> { %>
-                        <div class="week-column">
-                            <div class="bar-group">
-                                <div class="bar green-bar" style="height: <%= week.green * 20 %>px"></div>
-                                <div class="bar orange-bar" style="height: <%= week.orange * 20 %>px"></div>
-                            </div>
-                            <div class="week-label">
-                                <%= week.name %>
-                            </div>
-                        </div>
-                        <% }); %>
+                <% weeks.forEach(week=> { %>
+                <div class="week-column">
+                    <div class="bar-group">
+                        <div class="bar green-bar" style="height: <%= week.green * 20 %>px"></div>
+                        <div class="bar orange-bar" style="height: <%= week.orange * 20 %>px"></div>
+                    </div>
+                    <div class="week-label">
+                        <%= week.name %>
+                    </div>
+                </div>
+                <% }); %>
             </div>
 
             <ul class="v-meter">
@@ -168,22 +168,22 @@
         <section class="section">
             <h4 class="title is-size-4">Chi tiêu gần đây</h4>
             <% infoListExpense.forEach(info=> { %>
-                <div class="card mb-3">
-                    <div class="card-header p-3">
-                        <div class="content mr-6 m-3">
-                            <p class="title is-5">
-                                <%= info.title %>
-                            </p>
-                            <p class="subtitle is-6 has-text-grey-light">
-                                <%= info.date_now %>
-                            </p>
-                        </div>
-                        <h3 class="is-size-3 ml-2 mt-2">
-                            <%= info.money %>
-                        </h3>
+            <div class="card mb-3">
+                <div class="card-header p-3">
+                    <div class="content mr-6 m-3">
+                        <p class="title is-5">
+                            <%= info.title %>
+                        </p>
+                        <p class="subtitle is-6 has-text-grey-light">
+                            <%= new Date(info.date_now).toISOString().split('T')[0] %>
+                        </p>
                     </div>
+                    <h3 class="is-size-3 ml-2 mt-2">
+                        <%= info.money %>
+                    </h3>
                 </div>
-                <% }); %>
+            </div>
+            <% }); %>
         </section>
     </div>
 
@@ -209,27 +209,27 @@
         <section class="section">
             <h4 class="title is-size-4">Thu nhập gần đây</h4>
             <% infoListIncome.forEach(info=> { %>
-                <div class="card mb-3">
-                    <div class="card-header p-3">
-                        <div class="content mr-6 m-3">
-                            <p class="title is-5">
-                                <%= info.title %>
-                            </p>
-                            <p class="subtitle is-6 has-text-grey-light">
-                                <%= info.date_now %>
-                            </p>
-                        </div>
-                        <h3 class="is-size-3 ml-2 mt-2">
-                            <%= info.money %>
-                        </h3>
+            <div class="card mb-3">
+                <div class="card-header p-3">
+                    <div class="content mr-6 m-3">
+                        <p class="title is-5">
+                            <%= info.title %>
+                        </p>
+                        <p class="subtitle is-6 has-text-grey-light">
+                            <%= new Date(info.date_now).toISOString().split('T')[0] %>
+                        </p>
                     </div>
+                    <h3 class="is-size-3 ml-2 mt-2">
+                        <%= info.money %>
+                    </h3>
                 </div>
-                <% }); %>
+            </div>
+            <% }); %>
         </section>
     </div>
 
     <button class="redirect">
-        <a href="/expense-statistic/add-transaction">
+        <a href="/add-transaction">
             <i class="fa-solid fa-plus"></i>
         </a>
     </button>
