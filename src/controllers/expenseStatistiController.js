@@ -17,13 +17,13 @@ const getExpenseStatisticPage = async(req, res) => {
             infoList : infoList,
             infoListExpense: infoListExpense ,
             infoListIncome: infoListIncome
+
         })
     }catch(error){
         console.error(error)
         res.status(500).send("ERROR HAPPEND!")
 }
 }   
-
 const getAddExpensePage = async(req,res) => {
     try{
         res.render('addExpense',{
@@ -38,4 +38,5 @@ const getAddExpensePage = async(req,res) => {
 module.exports = {
     getExpenseStatisticPage,
     getAddExpensePage,
+
 }

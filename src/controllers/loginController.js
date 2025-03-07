@@ -42,7 +42,6 @@ const postLoginUser = async (req, res) => {
     }
 };
 
-
 module.exports = {
     getLoginPage,
     postLoginUser,

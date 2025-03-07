@@ -5,9 +5,10 @@ const {getRegisterPage, postCreateUser} = require('../controllers/registerContro
 const {getExpenseStatisticPage, getAddExpensePage,} = require('../controllers/expenseStatistiController')
 
 const {getViewReminders, getCreateReminder , getEditReminder} = require('../controllers/reminderController');
-const { getSettingPage } = require('../controllers/settingCotroller');
-const { getFAQsPage } = require('../controllers/fAQsController');
 const { getViewGoalsPage, getAddGoalPage, postCreateGoal } = require('../controllers/goalsControllers');
+
+const { getSettingPage, getEditPhone, postEditPhoneNumber, getEditPassword, postEditPassword  } = require('../controllers/settingCotroller');
+const { getFAQsPage } = require('../controllers/fAQsController');
 
 const router = express.Router();
 
@@ -40,5 +41,13 @@ router.get('/view-goals', getViewGoalsPage);
 router.get('/add-goal', getAddGoalPage);
 
 router.post('/add-goal/create-goal', postCreateGoal);
+
+router.get('/edit-phone-numbers', getEditPhone); 
+
+router.post('/edit-phone-numbers', postEditPhoneNumber); 
+
+router.get('/edit-password', getEditPassword); 
+
+router.post('/edit-password', postEditPassword);
 
 module.exports = router;

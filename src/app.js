@@ -11,6 +11,10 @@ const cookieParser = require('cookie-parser');
 
 configViewEngine(app)
 
+
+// const cookieParser = require('cookie-parser');
+
+// app.use(cookieParser());
 app.use(session({
     secret: '123456',
     resave: false,
