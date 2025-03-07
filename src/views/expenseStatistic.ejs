@@ -147,7 +147,9 @@
     <div id="expense-section" class="">
         <section class="section top-bar revision">
             <p class="has-text-grey-dark">Chi tiêu trong 7 ngày gần đây</p>
-            <h4 class="title is-size-4">'10 tỷ đ'</h4>
+            <h4 class="title is-size-4">
+                <%= money.money_in %>
+            </h4>
         </section>
         <section class="section chart">
             <div class="figure-chart">
@@ -163,40 +165,32 @@
         </section>
         <section class="section">
             <h4 class="title is-size-4">Chi tiêu gần đây</h4>
-            <div class="card mb-3">
-                <div class="card-header p-3">
-                    <div class="content mr-6 m-3">
-                        <p class="title is-5">StarBuck coffee</p>
-                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+            <% infoListExpense.forEach(info=> { %>
+                <div class="card mb-3">
+                    <div class="card-header p-3">
+                        <div class="content mr-6 m-3">
+                            <p class="title is-5">
+                                <%= info.title %>
+                            </p>
+                            <p class="subtitle is-6 has-text-grey-light">
+                                <%= info.date_now %>
+                            </p>
+                        </div>
+                        <h3 class="is-size-3 ml-2 mt-2">
+                            <%= info.money %>
+                        </h3>
                     </div>
-                    <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
                 </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-header p-3">
-                    <div class="content mr-6 m-3">
-                        <p class="title is-5">Highligh coffee</p>
-                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
-                    </div>
-                    <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-header p-3">
-                    <div class="content mr-6 m-3">
-                        <p class="title is-5">Gà KEC</p>
-                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
-                    </div>
-                    <h3 class="is-size-3 ml-2 mt-2">-100000đ</h3>
-                </div>
-            </div>
+                <% }); %>
         </section>
     </div>
 
     <div id="income-section" class="is-hidden">
         <section class="section top-bar revision">
             <p class="has-text-grey-dark">Thu nhập trong 7 ngày gần đây</p>
-            <h4 class="title is-size-4">'+100tỷ đ'</h4>
+            <h4 class="title is-size-4">
+                <%= money.money_out %>
+            </h4>
         </section>
         <section class="section chart">
             <div class="figure-chart">
@@ -212,33 +206,23 @@
         </section>
         <section class="section">
             <h4 class="title is-size-4">Thu nhập gần đây</h4>
-            <div class="card mb-3">
-                <div class="card-header p-3">
-                    <div class="content mr-6 m-3">
-                        <p class="title is-5">Lương phụ huynh</p>
-                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
+            <% infoListIncome.forEach(info=> { %>
+                <div class="card mb-3">
+                    <div class="card-header p-3">
+                        <div class="content mr-6 m-3">
+                            <p class="title is-5">
+                                <%= info.title %>
+                            </p>
+                            <p class="subtitle is-6 has-text-grey-light">
+                                <%= info.date_now %>
+                            </p>
+                        </div>
+                        <h3 class="is-size-3 ml-2 mt-2">
+                            <%= info.money %>
+                        </h3>
                     </div>
-                    <h3 class="is-size-3 ml-2 mt-2">+500000đ</h3>
                 </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-header p-3">
-                    <div class="content mr-6 m-3">
-                        <p class="title is-5">Lương phụ huynh</p>
-                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
-                    </div>
-                    <h3 class="is-size-3 ml-2 mt-2">+500000đ</h3>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-header p-3">
-                    <div class="content mr-6 m-3">
-                        <p class="title is-5">Lương phụ huynh</p>
-                        <p class="subtitle is-6 has-text-grey-light">02/01/2025 - 3:09 PM </p>
-                    </div>
-                    <h3 class="is-size-3 ml-2 mt-2">+500000đ</h3>
-                </div>
-            </div>
+                <% }); %>
         </section>
     </div>
 
