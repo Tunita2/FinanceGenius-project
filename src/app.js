@@ -32,10 +32,7 @@ app.use('/', webRouters)
 //   }
 // );
 
-
 app.use(cookieParser());
-
-
 
 app.listen(port, hostname, () =>{
 

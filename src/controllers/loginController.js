@@ -30,6 +30,8 @@ const postLoginUser = async (req, res) => {
         
         req.session.storedId = results[0].id;
 
+        req.session.storedId = results[0].id;
+
         let user = results[0];
         res.render('home.ejs', {
             user:user,

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tài chính</title>
+    <link rel="stylesheet" href="../CSS/goals.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="menu-icon"><i class="fa-solid fa-bars"></i></div>
+        <div class="date">Thứ 5, 19/12</div>
+        <div class="notification-icon"><i class="fa-solid fa-bell"></i></div>
+    </header>
+
+    <main>
+        <!-- Biểu đồ vòng tròn -->
+        <div class="chart-container">
+            <canvas id="goalChart"></canvas>
+            <div class="chart-center">
+                <p>Mục Tiêu</p>
+                <p>
+                    <%= totalReminders.toLocaleString('vi-VN') %> VND
+                </p>
+            </div>
+        </div>
+
+        <!-- Mục tiêu -->
+        <section class="targets">
+            <div class="section-header">
+                <h2>Mục tiêu</h2>
+                <a href="/add-goal" class="add-btn" style="text-decoration: none;"><i class="fa-solid fa-plus"></i>
+                    Thêm</a>
+            </div>
+            <div class="target-list">
+                <div class="target-item"><i class="fa-solid fa-couch" style="color: #36a2eb;"></i>
+                    <p class="content">Nội thất</p>
+                    <p class="money">
+                        <%= sumRemindersFurnitures.toLocaleString('vi-VN')%> VND
+                    </p>
+                </div>
+                <div class="target-item"><i class="fa-solid fa-umbrella-beach" style="color: #4bc0c0;"></i>
+                    <p class="content">Kỳ nghỉ</p>
+                    <p class="money">
+                        <%= sumRemindersHolidays.toLocaleString('vi-VN') %> VND
+                    </p>
+                </div>
+                <div class="target-item"><i class="fa-solid fa-book" style="color: #9966ff;"></i>
+                    <p class="content">Học</p>
+                    <p class="money">
+                        <%= sumRemindersStudies.toLocaleString('vi-VN')%> VND
+                    </p>
+                </div>
+                <div class="target-item"><i class="fa-solid fa-car" style="color: #ffce56;"></i>
+                    <p class="content">Xe</p>
+                    <p class="money">
+                        <%= sumRemindersCars.toLocaleString('vi-VN')%> VND
+                    </p>
+                </div>
+                <div class="target-item"><i class="fa-solid fa-house" style="color: #ff6384;"></i>
+                    <p class="content">Mua nhà</p>
+                    <p class="money">
+                        <%= sumRemindersHouses.toLocaleString('vi-VN')%> VND
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="info-box">
+                <% if (listGoal.length===0) { %>
+                    <i class="fa-solid fa-piggy-bank"></i>
+                    <p>Chi tiết mục tiêu của bạn sẽ được hiển thị ở đây</p>
+                    <% } else { %>
+                        <% listGoal.forEach(function(goal) { %>
+                            <div class="goal-item">
+                                <div class="goal-icon">
+                                    <i class="fa-solid fa-coins" style="margin-top: 9px; color: gold;"></i>
+                                </div>
+                                <div class="goal-content">
+                                    <p class="goal-title">
+                                        <%= goal.goal_name %>
+                                            <span class="goal-money">
+                                                <%= goal.goal_amount.toLocaleString('vi-VN') %> VND
+                                            </span>
+                                    </p>
+                                    <div>
+                                        <p class="goal-dates">Bắt đầu: <%= new
+                                                Date(goal.start_date).toISOString().split('T')[0] %>
+                                                <br>
+                                                Kết thúc: <%= new Date(goal.end_date).toISOString().split('T')[0] %>
+                                        </p>
+                                        <p class="goal-progress">
+                                            Còn <%= goal.remaining_amount.toLocaleString('vi-VN') %> VND nữa
+                                                <br>
+                                                Đã tiết kiệm <%= goal.saved_amount.toLocaleString('vi-VN') %> VND
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <% }); %>
+                                <% } %>
+            </div>
+        </section>
+    </main>
+
+    <!-- Thanh điều hướng -->
+    <nav class="bottom-nav">
+        <div class="nav-item"><i class="fa-solid fa-house"></i></div>
+        <div class="nav-item scan-btn"><i class="fa-solid fa-camera"></i></div>
+        <div class="nav-item"><i class="fa-solid fa-user"></i></div>
+    </nav>
+
+    <script src="../js/goals.js"></script>
+</body>
+
+</html>

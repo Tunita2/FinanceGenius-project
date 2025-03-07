@@ -7,6 +7,7 @@ const {getExpenseStatisticPage, getAddExpensePage,} = require('../controllers/ex
 const {getViewReminders, getCreateReminder , getEditReminder} = require('../controllers/reminderController');
 const { getSettingPage } = require('../controllers/settingCotroller');
 const { getFAQsPage } = require('../controllers/fAQsController');
+const { getViewGoalsPage, getAddGoalPage, postCreateGoal } = require('../controllers/goalsControllers');
 
 const router = express.Router();
 
@@ -33,5 +34,11 @@ router.get('/view-reminders/edit-reminder', getEditReminder);
 router.get('/setting', getSettingPage);
 
 router.get('/setting/FAQs', getFAQsPage);
+
+router.get('/view-goals', getViewGoalsPage);
+
+router.get('/add-goal', getAddGoalPage);
+
+router.post('/add-goal/create-goal', postCreateGoal);
 
 module.exports = router;
