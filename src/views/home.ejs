@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/homeStyle.css">
+    <link rel="stylesheet" href="/css/responsives.css">
+    <script src="https://kit.fontawesome.com/edef38b038.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/homeController.js"></script>
+    <title>FinGe</title>
+</head>
+
+<body>
+    <nav class="navbar is-flex is-justify-content-space-between m-4" role="navigation" aria-label="main navigation">
+        <div class="logo-design ">
+            <div class="back-box"></div>
+            <div class="front-box">
+                <span class="logo-text">FinGe</span>
+            </div>
+        </div>
+        <div class="narbar-end ">
+            <a href="/setting">
+                <i class="fa-solid fa-gear button is-size-2 setting "></i>
+            </a>
+        </div>
+    </nav>
+    <div class="content ml-4">
+        <h1>Hello <%= user.user_name %>
+        </h1>
+    </div>
+
+    <!-- Catalog -->
+    <div class="card ml-4 mr-4 card-style">
+        <div class="card-footer">
+            <a href="/expense-statistic" class="card-footer-item">
+                <h1 class="icon-catalog"><i class="fa-solid fa-right-left"></i></h1>
+                <p>Thu chi</p>
+            </a>
+            <a href="#" class="card-footer-item">
+                <h1 class="icon-catalog"><i class="fa-solid fa-money-bill-1-wave"></i></h1>
+                <p>Nạp tiền</p>
+            </a>
+        </div>
+    </div>
+    <section class="section is-large">
+        <h4 class="title is-4">Tiện ích</h4>
+        <div class="columns is-mobile mb-6">
+            <div class="column item">
+                <i class="fa-solid fa-tent-arrow-left-right is-size-1 has-text-success"></i>
+                <h6 class="title is-6">Giao dịch</h6>
+            </div>
+            <div class="column item">
+                <i class="fa-solid fa-clock-rotate-left is-size-1"></i>
+                <h6 class="title is-6">Lịch sử</h6>
+            </div>
+        </div>
+        <div class="columns is-mobile">
+            <div class="column item">
+                <i class="fa-solid fa-piggy-bank is-size-1 has-text-danger"></i>
+                <h6 class="title is-6">Quỹ tiết kiệm</h6>
+            </div>
+            <div class="column item">
+                <a href="/view-reminders"><i class="fa-solid fa-note-sticky is-size-1 has-text-warning"></i></a>
+                </i>
+                <h6 class="title is-6">Lời nhắc</h6>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Advertisement -->
+    <section class="section promotion">
+        <h4 class="title is-4">Quảng cáo</h4>
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="slideshow-container">
+                        <div class="slides fade is-active" data-index="1">
+                            <img src="/images/image1.png" alt="Slide 1">
+                        </div>
+                        <div class="slides fade" data-index="2">
+                            <img src="/images/image2.png" alt="Slide 2">
+                        </div>
+                        <div class="slides fade" data-index="3">
+                            <img src="/images/image3.png" alt="Slide 3">
+                        </div>
+
+                        <button class="button is-primary prev" onclick="changeSlide(-1)">&#10094;</button>
+                        <button class="button is-primary next" onclick="changeSlide(1)">&#10095;</button>
+                    </div>
+
+                    <div class="has-text-centered mt-4">
+                        <span class="dot is-active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- navbar -->
+    <div class="bottom-nav">
+        <a href="#" class="nav-icon active ">
+            <i class="fas fa-home fa-lg"></i>
+        </a>
+        <a href="/expense-statistic" class="nav-icon">
+            <i class="fa-solid fa-chart-simple"></i>
+        </a>
+        <div class="chatbot-btn">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+        <a href="#" class="nav-icon">
+            <i class="fas fa-bell fa-lg"></i>
+        </a>
+        <a href="#" class="nav-icon">
+            <i class="fa-solid fa-id-card"></i>
+        </a>
+    </div>
+</body>
+
+
+</html>
