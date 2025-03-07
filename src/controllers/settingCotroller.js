@@ -2,9 +2,7 @@ const connection = require('../config/database');
 
 const getSettingPage = async (req, res) => {
     try {
-        const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+        const userId = req.session.storedId ;
 
         console.log("UserID:", userId);
 
@@ -30,9 +28,7 @@ const getSettingPage = async (req, res) => {
 
 const getEditPhone = async (req, res) => {
     try {
-       const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+       const userId = req.session.storedId ;
 
         console.log("UserID:", userId);
 
@@ -49,9 +45,7 @@ const getEditPhone = async (req, res) => {
 
 const postEditPhoneNumber = async (req, res) => {
     try {
-        const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+        const userId = req.session.storedId ;
 
         //console.log("UserID:", userId);
 
@@ -79,9 +73,7 @@ const postEditPhoneNumber = async (req, res) => {
 };
 const getEditPassword = async (req, res) => {
     try {
-        const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+        const userId = req.session.storedId ;
 
         if (!userId) {
             return res.send("Người dùng không được xác thực.");
@@ -96,9 +88,7 @@ const getEditPassword = async (req, res) => {
 
 const postEditPassword = async (req, res) => {
     try {
-        const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+        const userId = req.session.storedId ;
 
         if (!userId) {
             return res.send("Người dùng không được xác thực.");

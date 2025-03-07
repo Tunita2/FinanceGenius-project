@@ -3,13 +3,11 @@ const connection = require('../config/database');
 
 const getViewReminders = async (req, res) => {
     try {
-        const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+        const userId = req.session.storedId;
         if (!userId) {
             return res.redirect('/login');
         }
-        //console.log('User ID:', userId); 
+        console.log('User ID:', userId); 
         const filter = req.query.filter || 'upcoming';
         const today = new Date().toISOString().split('T')[0];
 
@@ -51,9 +49,7 @@ const postCreateReminder = async (req, res) => {
     try {
         let { reminderName, amount, dueDate, frequency, reminderMethod, reminderNotification } = req.body;
         
-        const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+        const userId = req.session.storedId ;
         
         if (!userId) {
             return res.redirect('/login');
@@ -76,9 +72,7 @@ const postDeleteReminder = async (req, res) => {
     try {
         const reminderId = req.body.reminderId;
 
-        const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+        const userId = req.session.storedId ;
         
         if (!userId) {
             return res.redirect('/login'); 
@@ -96,9 +90,7 @@ const getUpdateReminderID = async (req, res) => {
     try {
         let reminderId = req.params.id; 
         
-        const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+        const userId = req.session.storedId ;
         
         if (!userId) {
             return res.redirect('/login'); 
@@ -120,9 +112,7 @@ const postUpdateReminder = async (req, res) => {
     try {
         let { reminderID, reminderName, reminderAmount, reminderDate, reminderFrequency, reminderPayment, reminderNotification } = req.body;
         
-        const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+        const userId = req.session.storedId ;
         
         if (!userId) {
             return res.redirect('/login'); 
@@ -149,9 +139,7 @@ const postUpdateReminder = async (req, res) => {
 
 const markReminderAsComplete = async (req, res) => {
     try {
-        const userId = (req.user && req.user.userId) || 
-                       (req.user && req.user.id) || 
-                       (req.session && req.session.userId);
+        const userId = req.session.storedId ;
         
         if (!userId) {
             return res.redirect('/login'); 

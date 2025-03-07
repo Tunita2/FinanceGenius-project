@@ -8,13 +8,17 @@
     <link rel="stylesheet" href="../CSS/goals.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
     <header>
-        <div class="menu-icon"><i class="fa-solid fa-bars"></i></div>
-        <div class="date">Thứ 5, 19/12</div>
-        <div class="notification-icon"><i class="fa-solid fa-bell"></i></div>
+        <div onclick="history.back()" class="menu-icon" style="cursor: pointer;"><i class="fa-solid fa-arrow-left"></i>
+        </div>
+        <div class="date">
+            <%= new Date().toISOString().split('T')[0];%>
+        </div>
+        <div><i></i></div>
     </header>
 
     <main>
@@ -40,34 +44,33 @@
                 <div class="target-item"><i class="fa-solid fa-couch" style="color: #36a2eb;"></i>
                     <p class="content">Nội thất</p>
                     <p class="money">
-                        <%= sumRemindersFurnitures.toLocaleString('vi-VN')%> VND
+                        <%= listGoalAmounts[1].toLocaleString('vi-VN')%> VND
                     </p>
                 </div>
                 <div class="target-item"><i class="fa-solid fa-umbrella-beach" style="color: #4bc0c0;"></i>
                     <p class="content">Kỳ nghỉ</p>
                     <p class="money">
-                        <%= sumRemindersHolidays.toLocaleString('vi-VN') %> VND
+                        <%= listGoalAmounts[3].toLocaleString('vi-VN') %> VND
                     </p>
                 </div>
                 <div class="target-item"><i class="fa-solid fa-book" style="color: #9966ff;"></i>
                     <p class="content">Học</p>
                     <p class="money">
-                        <%= sumRemindersStudies.toLocaleString('vi-VN')%> VND
+                        <%= listGoalAmounts[4].toLocaleString('vi-VN')%> VND
                     </p>
                 </div>
                 <div class="target-item"><i class="fa-solid fa-car" style="color: #ffce56;"></i>
                     <p class="content">Xe</p>
                     <p class="money">
-                        <%= sumRemindersCars.toLocaleString('vi-VN')%> VND
+                        <%= listGoalAmounts[2].toLocaleString('vi-VN')%> VND
                     </p>
                 </div>
                 <div class="target-item"><i class="fa-solid fa-house" style="color: #ff6384;"></i>
                     <p class="content">Mua nhà</p>
                     <p class="money">
-                        <%= sumRemindersHouses.toLocaleString('vi-VN')%> VND
+                        <%= listGoalAmounts[0].toLocaleString('vi-VN')%> VND
                     </p>
                 </div>
-
             </div>
 
             <div class="info-box">
@@ -107,14 +110,6 @@
             </div>
         </section>
     </main>
-
-    <!-- Thanh điều hướng -->
-    <nav class="bottom-nav">
-        <div class="nav-item"><i class="fa-solid fa-house"></i></div>
-        <div class="nav-item scan-btn"><i class="fa-solid fa-camera"></i></div>
-        <div class="nav-item"><i class="fa-solid fa-user"></i></div>
-    </nav>
-
     <script src="../js/goals.js"></script>
 </body>
 

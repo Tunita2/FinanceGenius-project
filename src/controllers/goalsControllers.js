@@ -30,16 +30,30 @@ const getViewGoalsPage = async (req, res) => {
         let [sumRemindersFurnitures] = await connection.query(`
             SELECT IFNULL(SUM(remaining_amount), 0) AS sumRemindersFurnitures 
             FROM Goal WHERE user_id=? AND goal_name = 'Nội thất'`, [userId]);
+        
 
+
+        let house = sumRemindersHouses[0].sumRemindersHouses
+        let furniture =    sumRemindersFurnitures[0].sumRemindersFurnitures
+        let car =   sumRemindersCars[0].sumRemindersCars
+        let holiday=  sumRemindersHolidays[0].sumRemindersHolidays
+        let study =   sumRemindersStudies[0].sumRemindersStudies
+
+
+
+        req.session.listGoal = [
+            house, furniture, car, holiday, study
+        ]
+        let listGoalAmounts = req.session.listGoal
         res.render('viewGoals.ejs', {
             listGoal: results,
             totalReminders: totalReminders[0].totalReminders, 
-            sumRemindersHouses: sumRemindersHouses[0].sumRemindersHouses, 
-            sumRemindersCars: sumRemindersCars[0].sumRemindersCars,
-            sumRemindersStudies: sumRemindersStudies[0].sumRemindersStudies,
-            sumRemindersHolidays: sumRemindersHolidays[0].sumRemindersHolidays,
-            sumRemindersFurnitures: sumRemindersFurnitures[0].sumRemindersFurnitures
+            listGoalAmounts: listGoalAmounts,
+            // listGoalAmounts: [house,furniture,car,holiday,study
+            // ] 
         });
+
+
     } catch (error) {
         console.error(error);
         res.send("ERROR HAPPENED!");
@@ -63,7 +77,7 @@ const postCreateGoal = async (req, res) => {
         let amount = parseFloat(req.body.amount); 
         let startDate = req.body.startDate;
         let endDate = req.body.endDate;
-        let paymentMethod = req.body.paymentMethod;
+let paymentMethod = req.body.paymentMethod;
 
         let savedAmount = 0;
 
