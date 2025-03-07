@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Lời Nhắc</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/reminders.css">
+</head>
+
+<body>
+
+    <div class="container-box">
+        <div class="top-bar">
+            <button onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+            <span>Lời nhắc nhở</span>
+            <button><i class="fa-solid fa-gear"></i></button>
+        </div>
+
+        <div class="content">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="fw-bold">Tạo lời nhắc</h4>
+                <a href="#" class="cancel">Hủy</a>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Tên khoản thanh toán</label>
+                <input type="text" id="reminder-name" class="form-control" placeholder="Nhập tên khoản thanh toán">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Số tiền</label>
+                <input type="number" id="reminder-amount" class="form-control" placeholder="Nhập số tiền">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Ngày đến hạn</label>
+                <input type="date" id="reminder-date" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Tần suất</label>
+                <select id="reminder-frequency" class="form-select">
+                    <option>Một lần</option>
+                    <option>Hàng ngày</option>
+                    <option>Hàng tuần</option>
+                    <option>Hàng tháng</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Phương thức thanh toán</label>
+                <select id="reminder-method" class="form-select">
+                    <option>Ví điện tử</option>
+                    <option>Thẻ ngân hàng</option>
+                    <option>Tiền mặt</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Thông báo</label>
+                <select id="reminder-notification" class="form-select">
+                    <option>1 ngày trước</option>
+                    <option>3 ngày trước</option>
+                    <option>1 tuần trước</option>
+                </select>
+            </div>
+
+            <button class="btn btn-save">Lưu</button>
+        </div>
+    </div>
+    <script src="/js/reminderScript.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
