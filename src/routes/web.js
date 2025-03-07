@@ -24,6 +24,8 @@ const {
 } = require('../controllers/settingCotroller');
 const { getFAQsPage } = require('../controllers/fAQsController');
 
+const {getBudgettingPage,postCreateBudget,getCreateBudgetPage} = require('../controllers/budgettingController')
+
 const router = express.Router();
 
 router.get('/', getHomePage);
@@ -73,3 +75,9 @@ router.get('/edit-password', getEditPassword);
 router.post('/edit-password', postEditPassword);
 
 module.exports = router;
+router.get('/budgetting', getBudgettingPage);
+
+router.get('/budget-create', getCreateBudgetPage)
+
+router.post('/created-budget', postCreateBudget);
+
