@@ -2,7 +2,7 @@ const express = require('express');
 const {getHomePage,} = require('../controllers/homeController')
 const {getLoginPage, postLoginUser,} = require('../controllers/loginController')
 const {getRegisterPage, postCreateUser} = require('../controllers/registerController')
-const {getExpenseStatisticPage,} = require('../controllers/expenseStatistiController')
+const {getExpenseStatisticPage, getAddExpensePage,} = require('../controllers/expenseStatistiController')
 
 const {getViewReminders, getCreateReminder , getEditReminder} = require('../controllers/reminderController');
 const { getSettingPage } = require('../controllers/settingCotroller');
@@ -21,6 +21,8 @@ router.post('/create-user',postCreateUser);
 router.post('/login-success',postLoginUser);
 
 router.get('/expense-statistic', getExpenseStatisticPage);
+
+router.get('/expense-statistic/add-transaction', getAddExpensePage);
 
 router.get('/view-reminders', getViewReminders);
 

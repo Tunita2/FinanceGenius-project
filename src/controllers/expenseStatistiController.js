@@ -24,6 +24,18 @@ const getExpenseStatisticPage = async(req, res) => {
 }
 }   
 
+const getAddExpensePage = async(req,res) => {
+    try{
+        res.render('addExpense',{
+
+        })
+    }catch(error){
+        console.error(error)
+        res.status(500).send("ERROR HAPPEND!")
+    }
+}
+
 module.exports = {
     getExpenseStatisticPage,
+    getAddExpensePage,
 }
