@@ -15,7 +15,7 @@ const postLoginUser = async (req, res) => {
     let password = req.body.password;
     
     try {
-        let[results, field] = await connection.query(`SELECT email, password FROM Persons WHERE email = ?`, [email]);
+        let[results, field] = await connection.query(`SELECT user_name, email, password FROM Persons WHERE email = ?`, [email]);
         
         if (results.length === 0) {
             return res.send("Email không tồn tại!");
@@ -27,7 +27,8 @@ const postLoginUser = async (req, res) => {
             return res.send("Sai mật khẩu!");
         }
 
-        res.redirect('/');
+        let user = results[0];
+        res.render('home.ejs', {user:user});
     } catch (error) {
         console.error("Lỗi đăng ký:", error);
         res.send("Lỗi hệ thống!");
