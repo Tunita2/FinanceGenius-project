@@ -1,141 +1,160 @@
 <!DOCTYPE html>
 <html lang="vi">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="/css/homeStyle.css">
-    <link rel="stylesheet" href="/css/responsives.css">
-    <script src="https://kit.fontawesome.com/edef38b038.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/css/homeStyle.css" />
+    <link rel="stylesheet" href="/css/responsives.css" />
+    <script
+      src="https://kit.fontawesome.com/edef38b038.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript" src="/js/homePage.controller.js"></script>
     <title>FinGe</title>
-</head>
+  </head>
 
-<body>
-    <nav class="navbar is-flex is-justify-content-space-between m-4" role="navigation" aria-label="main navigation">
-        <div class="logo-design ">
-            <div class="back-box"></div>
-            <div class="front-box">
-                <span class="logo-text">FinGe</span>
-            </div>
+  <body>
+    <nav
+      class="navbar is-flex is-justify-content-space-between m-4"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="logo-design">
+        <div class="back-box"></div>
+        <div class="front-box">
+          <span class="logo-text">FinGe</span>
         </div>
-        <div class="narbar-end ">
-            <i class="fa-solid fa-gear button is-size-2 setting "></i>
-        </div>
+      </div>
+      <div class="narbar-end">
+        <i class="fa-solid fa-gear button is-size-2 setting"></i>
+      </div>
     </nav>
     <div class="content ml-4">
-        <h1>Hello <%= yourName %>
-        </h1>
+      <h1>Hello <%= yourName %></h1>
     </div>
 
     <!-- Catalog -->
     <div class="card ml-4 mr-4 card-style">
-        <div class="card-footer">
-            <a href="/expense-statistic" class="card-footer-item">
-                <h1 class="icon-catalog"><i class="fa-solid fa-right-left"></i></h1>
-                <p>Thu chi</p>
-            </a>
-            <a href="#" class="card-footer-item">
-                <h1 class="icon-catalog"><i class="fa-solid fa-money-bill-1-wave"></i></h1>
-                <p>Nạp tiền</p>
-            </a>
-            <a href="#" class="card-footer-item">
-                <h1 class="icon-catalog"><i class="fa-solid fa-clock-rotate-left"></i></h1>
-                <p>Lịch sử</p>
-            </a>
-        </div>
+      <div class="card-footer">
+        <a href="/expense-statistic" class="card-footer-item">
+          <h1 class="icon-catalog"><i class="fa-solid fa-right-left"></i></h1>
+          <p>Thu chi</p>
+        </a>
+        <a href="#" class="card-footer-item">
+          <h1 class="icon-catalog">
+            <i class="fa-solid fa-money-bill-1-wave"></i>
+          </h1>
+          <p>Nạp tiền</p>
+        </a>
+        <a href="#" class="card-footer-item">
+          <h1 class="icon-catalog">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </h1>
+          <p>Lịch sử</p>
+        </a>
+      </div>
     </div>
     <section class="section is-large">
-        <h4 class="title is-4">Danh sách thanh toán</h4>
-        <div class="columns is-mobile mb-4">
-            <div class="column item">
-                <i class="fa-solid fa-bolt-lightning" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Tiền điện</h6>
-            </div>
-            <div class="column item">
-                <i class="fa-solid fa-wifi" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Internet</h6>
-            </div>
-            <div class="column item">
-                <i class="fa-solid fa-car-side" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Đi lại</h6>
-            </div>
-            <div class="column item">
-                <i class="fa-solid fa-mobile-screen-button" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Nạp điện thoại</h6>
-            </div>
+      <h4 class="title is-4">Danh sách thanh toán</h4>
+      <div class="columns is-mobile mb-4">
+        <div class="column item">
+          <i class="fa-solid fa-bolt-lightning" style="font-size: 2rem"></i>
+          <h6 class="title is-6">Tiền điện</h6>
         </div>
-        <div class="columns is-mobile">
-            <div class="column item">
-                <i class="fa-solid fa-cart-plus" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Mua sắm</h6>
-            </div>
-            <div class="column item">
-                <i class="fa-solid fa-landmark" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Vay tiền</h6>
-            </div>
-            <div class="column item">
-                <i class="fa-solid fa-piggy-bank" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Tiết kiệm</h6>
-            </div>
-            <div class="column item">
-                <i class="fa-solid fa-ellipsis" style="font-size: 2rem;"></i>
-                <h6 class="title is-6">Xem tất cả</h6>
-            </div>
+        <div class="column item">
+          <i class="fa-solid fa-wifi" style="font-size: 2rem"></i>
+          <h6 class="title is-6">Internet</h6>
         </div>
+        <div class="column item">
+          <i class="fa-solid fa-car-side" style="font-size: 2rem"></i>
+          <h6 class="title is-6">Đi lại</h6>
+        </div>
+        <div class="column item">
+          <i
+            class="fa-solid fa-mobile-screen-button"
+            style="font-size: 2rem"
+          ></i>
+          <h6 class="title is-6">Nạp điện thoại</h6>
+        </div>
+      </div>
+      <div class="columns is-mobile">
+        <div class="column item">
+          <i class="fa-solid fa-cart-plus" style="font-size: 2rem"></i>
+          <h6 class="title is-6">Mua sắm</h6>
+        </div>
+        <div class="column item">
+          <i class="fa-solid fa-landmark" style="font-size: 2rem"></i>
+          <h6 class="title is-6">Vay tiền</h6>
+        </div>
+        <a href="/budgetting">
+          <div class="column item">
+            <i class="fa-solid fa-piggy-bank" style="font-size: 2rem"></i>
+            <h6 class="title is-6">Tạo quỹ</h6>
+          </div>
+        </a>
+        <div class="column item">
+          <i class="fa-solid fa-ellipsis" style="font-size: 2rem"></i>
+          <h6 class="title is-6">Xem tất cả</h6>
+        </div>
+      </div>
     </section>
 
     <!-- Advertisement -->
     <section class="section promotion">
-        <h4 class="title is-4">Quảng cáo</h4>
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-8">
-                    <div class="slideshow-container">
-                        <div class="slides fade is-active" data-index="1">
-                            <img src="/images/image1.png" alt="Slide 1">
-                        </div>
-                        <div class="slides fade" data-index="2">
-                            <img src="/images/image2.png" alt="Slide 2">
-                        </div>
-                        <div class="slides fade" data-index="3">
-                            <img src="/images/image3.png" alt="Slide 3">
-                        </div>
+      <h4 class="title is-4">Quảng cáo</h4>
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="slideshow-container">
+              <div class="slides fade is-active" data-index="1">
+                <img src="/images/image1.png" alt="Slide 1" />
+              </div>
+              <div class="slides fade" data-index="2">
+                <img src="/images/image2.png" alt="Slide 2" />
+              </div>
+              <div class="slides fade" data-index="3">
+                <img src="/images/image3.png" alt="Slide 3" />
+              </div>
 
-                        <button class="button is-primary prev" onclick="changeSlide(-1)">&#10094;</button>
-                        <button class="button is-primary next" onclick="changeSlide(1)">&#10095;</button>
-                    </div>
-
-                    <div class="has-text-centered mt-4">
-                        <span class="dot is-active" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                    </div>
-                </div>
+              <button class="button is-primary prev" onclick="changeSlide(-1)">
+                &#10094;
+              </button>
+              <button class="button is-primary next" onclick="changeSlide(1)">
+                &#10095;
+              </button>
             </div>
+
+            <div class="has-text-centered mt-4">
+              <span class="dot is-active" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- navbar -->
     <div class="bottom-nav">
-        <a href="#" class="nav-icon active ">
-            <i class="fas fa-home fa-lg"></i>
-        </a>
-        <a href="/expense-statistic" class="nav-icon">
-            <i class="fa-solid fa-chart-simple"></i>
-        </a>
-        <div class="chatbot-btn">
-            <i class="fa-solid fa-robot"></i>
-        </div>
-        <a href="#" class="nav-icon">
-            <i class="fas fa-bell fa-lg"></i>
-        </a>
-        <a href="#" class="nav-icon">
-            <i class="fa-solid fa-id-card"></i>
-        </a>
+      <a href="#" class="nav-icon active">
+        <i class="fas fa-home fa-lg"></i>
+      </a>
+      <a href="/expense-statistic" class="nav-icon">
+        <i class="fa-solid fa-chart-simple"></i>
+      </a>
+      <div class="chatbot-btn">
+        <i class="fa-solid fa-robot"></i>
+      </div>
+      <a href="#" class="nav-icon">
+        <i class="fas fa-bell fa-lg"></i>
+      </a>
+      <a href="#" class="nav-icon">
+        <i class="fa-solid fa-id-card"></i>
+      </a>
     </div>
-</body>
-
-
+  </body>
 </html>

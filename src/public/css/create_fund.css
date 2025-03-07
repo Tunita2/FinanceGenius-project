@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  body {
+    background-color: white;
+    padding-bottom: 20px;
+  }
+  .container {
+    /* max-width: 375px; */
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Phần header */
+  .header-container {
+    display: flex; /* sắp xếp các phần tử trong theo ngang */
+    justify-content: space-between; /* căn các phần tử giãn đều , pt đầu nằm sát trái, pt cuối nằm sát phải*/
+    align-items: center; /* căn giữa theo chiều dọc */
+    background-color: #166d3b; /* màu nền là màu xanh*/
+    color: white; /* chữ trắng*/
+    padding: 15px; /*tạo khoảng cách từ nội dung đến viền là 15px*/
+  }
+  
+  /*1.1 Phần css cho nút quay lại(mũi tên) và nút cài đặt  */
+  .back-btn,
+  .settings-btn {
+    background: none; /* màu nền 2 nút ko có*/
+    border: 2px solid rgba(255, 255, 255, 0.5); /* viền 2px thẳng và có màu trắng 50%  */
+    border-radius: 10px; /* bo góc viền */
+    padding: 8px; /*phần tử cách viền 8px*/
+    color: white; /* màu phần tử (nút) là trắng*/
+    font-size: 20px; /* size của nút là 20px */
+    cursor: pointer; /*biến con trỏ chuột thành bàn tay khi rê chuột vào */
+  }
+  
+  
+  /* 2. Phần card */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .balance {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 10px 2px 0px ;
+  }
+  
+  .title_fund_detail {
+    font-size: 20px;
+    font-weight: bold
+  
+  }
+  
+  .descrip{
+      font-size: 15px;
+      font-style: italic;
+      margin-bottom: 15px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .buttons button {
+    width: 48%;
+    padding: 10px;
+    background-color: #0a5d38;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Phần form */
+  .form {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .confirm-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

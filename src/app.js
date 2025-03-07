@@ -6,6 +6,16 @@ const webRouters = require('./routes/web')
 const port = process.env.PORT;
 const hostname = process.env.HOST;
 const connection = require('./config/database')
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Nếu dùng HTTPS thì chỉnh thành `true`
+}));
 
 configViewEngine(app)
 
@@ -23,16 +33,7 @@ app.use('/', webRouters)
 //   }
 // );
 
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
 
-app.use(cookieParser());
-app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false } // Nếu dùng HTTPS thì chỉnh thành `true`
-}));
 
 
 app.listen(port, hostname, () =>{
