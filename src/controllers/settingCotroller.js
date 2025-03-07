@@ -1,4 +1,3 @@
-
 const connection = require('../config/database');
 
 const getSettingPage = async (req, res) => {

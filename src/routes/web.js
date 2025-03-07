@@ -1,13 +1,27 @@
 const express = require('express');
-const {getHomePage,} = require('../controllers/homeController')
-const {getLoginPage, postLoginUser,} = require('../controllers/loginController')
-const {getRegisterPage, postCreateUser} = require('../controllers/registerController')
 const {getExpenseStatisticPage, getAddExpensePage,} = require('../controllers/expenseStatistiController')
 
-const {getViewReminders, getCreateReminder , getEditReminder} = require('../controllers/reminderController');
 const { getViewGoalsPage, getAddGoalPage, postCreateGoal } = require('../controllers/goalsControllers');
 
-const { getSettingPage, getEditPhone, postEditPhoneNumber, getEditPassword, postEditPassword  } = require('../controllers/settingCotroller');
+const { getHomePage } = require('../controllers/homeController');
+const { getLoginPage, postLoginUser } = require('../controllers/loginController');
+const { getRegisterPage, postCreateUser } = require('../controllers/registerController');
+const { 
+    getViewReminders, 
+    getCreateReminder, 
+    getUpdateReminderID, 
+    postCreateReminder, 
+    postDeleteReminder, 
+    postUpdateReminder, 
+    markReminderAsComplete 
+} = require('../controllers/reminderController');
+const { 
+    getSettingPage, 
+    getEditPhone, 
+    postEditPhoneNumber, 
+    getEditPassword, 
+    postEditPassword  
+} = require('../controllers/settingCotroller');
 const { getFAQsPage } = require('../controllers/fAQsController');
 
 const router = express.Router();
@@ -28,9 +42,17 @@ router.get('/expense-statistic/add-transaction', getAddExpensePage);
 
 router.get('/view-reminders', getViewReminders);
 
-router.get('/view-reminders/create-reminder', getCreateReminder);
+router.get('/create-reminder', getCreateReminder);
 
-router.get('/view-reminders/edit-reminder', getEditReminder);
+router.post('/create-reminder', postCreateReminder);
+
+router.post('/delete-reminder', postDeleteReminder);
+
+router.get('/update-reminder/:id', getUpdateReminderID);
+
+router.post('/update-reminder', postUpdateReminder);
+
+router.get('/mark-complete/:id', markReminderAsComplete); 
 
 router.get('/setting', getSettingPage);
 
