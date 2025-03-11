@@ -8,7 +8,7 @@ const hostname = process.env.HOST;
 const connection = require('./config/database')
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-
+const apiRouter = require('./routes/api');
 configViewEngine(app)
 
 
@@ -25,6 +25,7 @@ app.use(session({
 app.use(express.json()); // for json
 app.use(express.urlencoded((extendedd = true))); // for form data
 app.use('/', webRouters)
+app.use('/api', apiRouter)
 
 
 

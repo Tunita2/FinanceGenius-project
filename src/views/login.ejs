@@ -15,14 +15,51 @@
 </head>
 
 <body>
-    <div class="container-box">
-        <div class="login-container text-center">
-            <div class="logo-design ">
-                <div class="back-box"></div>
-                <div class="front-box">
-                    <span class="logo-text">FinGe</span>
+    <div class="box">
+        <form action="/login-success" method="POST">
+            <div class="form">
+                <div class="logo-design ">
+                    <div class="back-box"></div>
+                    <div class="front-box">
+                        <span class="logo-text">FinGe</span>
+                    </div>
                 </div>
+                <h2 class="mt-6">Đăng nhập</h2>
+                <div class="inputbox">
+                    <input required="required" type="text" name="email">
+                    <span>Email</span>
+                    <i></i>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="password" required="required">
+                    <span>Mật khẩu</span>
+                    <i></i>
+                </div>
+                <div class="links">
+                    <a href="#">Quên mật khẩu?</a>
+                    <a href="register.ejs" name="buttonnavregister">Đăng kí</a>
+                </div>
+                <div>
+                    <div class="tag tag-icon">
+                        <img src="/images/google_logo_icon.png" alt="Google icon">
+                        <span>Đăng nhập với google</span>
+                    </div>
+                    <div class="tag tag-icon">
+                        <img src="/images/facebook_icon.png" alt="Facebook icon">
+                        <span>Đăng nhập với Facebook</span>
+                    </div>
+                    
+                </div>
+                <input type="submit" value="Đăng nhập">
             </div>
+        </form>
+    </div>
+    <style>
+        
+    </style>
+    <!-- <div class="container-box">
+        <div class="login-container text-center">
+
             <h3 class="text-white">Đăng nhập</h3>
             <form action="/login-success" method="POST">
                 <div class="mb-3 text-start">
@@ -36,12 +73,13 @@
                 <div class="text-end mb-3">
                     <a href="#" class="forgot-password">Quên mật khẩu?</a>
                 </div>
-                <button type="submit" class="btn btn-custom w-100">Đăng nhập</button>
-                <p class="mt-3 text-white register-link">Bạn chưa có tài khoản? <a href="register.ejs"
-                        class="text-light" name="buttonnavregister">Đăng ký</a></p>
-            </form>
+                <button type="submit" class="btn btn-custom w-100">Đăng nhập</button> -->
+    <!-- <p class="mt-3 text-white register-link">Bạn chưa có tài khoản? <a href="register.ejs"
+                        class="text-light" name="buttonnavregister">Đăng ký</a></p> -->
+    <!-- </form>
         </div>
-    </div>
+    </div> -->
+
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -56,5 +94,8 @@
         });
     });
 </script>
+<style>
+
+</style>
 
 </html>

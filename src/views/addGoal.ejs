@@ -5,49 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm mục tiêu</title>
+    <link rel="stylesheet" href="../css/responsives.css">
     <link rel="stylesheet" href="../CSS/goals.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
+    <div class="box">
+        <div class="form content-wrapper">
+            <div class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Thêm mục tiêu</h2>
+                        <a href="view-goals" style="text-decoration: none;"><span class="close-btn">&times;</span></a>
+                    </div>
+                    <form id="goalForm" action="/add-goal/create-goal" method="POST">
+                        <label for="goalName">Tên mục tiêu</label>
+                        <select id="goalName" name="goalName">
+                            <option value="Mua nhà">Mua nhà</option>
+                            <option value="Nội thất">Nội thất</option>
+                            <option value="Xe">Xe</option>
+                            <option value="Kỳ nghỉ">Kỳ nghỉ</option>
+                            <option value="Học">Học</option>
+                        </select>
 
-    <div class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Thêm mục tiêu</h2>
-                <a href="view-goals" style="text-decoration: none;"><span class="close-btn">&times;</span></a>
+                        <label for="amount">Khoản tiền</label>
+                        <input type="number" id="amount" placeholder="00.00" name="amount">
+
+                        <label for="startDate">Ngày bắt đầu</label>
+                        <input type="date" id="startDate" name="startDate">
+
+                        <label for="endDate">Ngày kết thúc</label>
+                        <input type="date" id="endDate" name="endDate">
+
+                        <label for="account">Tài khoản</label>
+                        <select id="account" name="paymentMethod">
+                            <option value="Ví điện tử">Ví điện tử</option>
+                            <option value="Thẻ ngân hàng">Thẻ ngân hàng</option>
+                            <option value="Tiền mặt">Tiền mặt</option>
+                        </select>
+
+                        <button type="submit">Thêm mục tiêu</button>
+                    </form>
+                </div>
             </div>
-            <form id="goalForm" action="/add-goal/create-goal" method="POST">
-                <label for="goalName">Tên mục tiêu</label>
-                <select id="goalName" name="goalName">
-                    <option value="Mua nhà">Mua nhà</option>
-                    <option value="Nội thất">Nội thất</option>
-                    <option value="Xe">Xe</option>
-                    <option value="Kỳ nghỉ">Kỳ nghỉ</option>
-                    <option value="Học">Học</option>
-                </select>
-
-                <label for="amount">Khoản tiền</label>
-                <input type="number" id="amount" placeholder="00.00" name="amount">
-
-                <label for="startDate">Ngày bắt đầu</label>
-                <input type="date" id="startDate" name="startDate">
-
-                <label for="endDate">Ngày kết thúc</label>
-                <input type="date" id="endDate" name="endDate">
-
-                <label for="account">Tài khoản</label>
-                <select id="account" name="paymentMethod">
-                    <option value="Ví điện tử">Ví điện tử</option>
-                    <option value="Thẻ ngân hàng">Thẻ ngân hàng</option>
-                    <option value="Tiền mặt">Tiền mặt</option>
-                </select>
-
-                <button type="submit">Thêm mục tiêu</button>
-            </form>
         </div>
     </div>
-
     <script src="../js/goals.js"></script>
 </body>
 

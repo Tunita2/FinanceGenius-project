@@ -27,6 +27,7 @@ const { getFAQsPage, searchFAQs } = require('../controllers/fAQsController');
 
 const {getBudgettingPage,postCreateBudget,getCreateBudgetPage} = require('../controllers/budgettingController')
 
+
 const router = express.Router();
 
 router.get('/', getHomePage);
@@ -68,10 +69,10 @@ router.post('/add-goal/create-goal', postCreateGoal);
 
 
 
-module.exports = router;
 router.get('/budgetting', getBudgettingPage);
 
 router.get('/budget-create', getCreateBudgetPage)
 
 router.post('/created-budget', postCreateBudget);
 
+module.exports = router;
