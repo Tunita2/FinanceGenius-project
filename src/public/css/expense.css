@@ -9,46 +9,41 @@ body {
   position: relative;
 }
 
-.setting {
-  border-radius: 10px;
-  width: 70px;
-  height: 70px;
-  display: flex !important;
-}
-
-.top-bar {
-  width: 100%;
-  height: 100px;
-  color: white;
+header {
+  position: fixed;
+  z-index: 11;
+  width: 320px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-}
-
-.top-bar button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 50px;
-  cursor: pointer;
+  padding: 15px;
+  background: white;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
 .card-style {
   height: 100px;
   background-color: #4ecb71;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
 }
 
-.card-footer h1 {
-  color: white;
-  font-family: Arial, sans-serif;
+.btn-transaction {
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  display: inline-block;
+  border: solid 1px white;
 }
-.card-footer h2 {
-  font-family: Arial, sans-serif;
-  color: rgb(221, 221, 221);
+.btn-transaction h2 {
+  padding-top: 13px;
 }
-.card-footer-item {
-  display: block;
+
+.breadcrumbs {
+  /* display: flex; */
+  /* justify-content: space-between; */
 }
 
 .container {
@@ -139,7 +134,6 @@ section.chart {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: wrap;
   gap: 1rem;
 }
 
@@ -220,7 +214,7 @@ section.chart {
 }
 .redirect {
   position: fixed;
-  right: 70px;
+  right: 40%;
   bottom: 100px;
   width: 50px;
   height: 50px;

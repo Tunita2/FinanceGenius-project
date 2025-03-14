@@ -49,6 +49,8 @@ const {
 
 const router = express.Router();
 
+module.exports = router;
+// Router Home
 router.get("/", getHomePage);
 
 // Router Authen
@@ -85,14 +87,9 @@ router.get("/view-goals", getViewGoalsPage);
 router.get("/add-goal", getAddGoalPage);
 router.post("/add-goal/create-goal", postCreateGoal);
 
-module.exports = router;
 // Router Budget
 router.get("/budgetting", getBudgettingPage);
-
 router.get("/budget-create", getCreateBudgetPage);
-
 router.post("/created-budget", postCreateBudget);
-
 router.get("/budget-available/:id", getBudAvaiPage);
-
 router.post("/delete-budget",deleteBudget);

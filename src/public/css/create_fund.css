@@ -7,12 +7,11 @@
 body {
   background-color: white;
   padding-bottom: 20px;
+  color: black;
 }
 .container {
   /* max-width: 375px; */
-  margin: auto;
   background-color: white;
-  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -98,14 +97,17 @@ body {
 }
 
 /* Phần form */
-.form {
+/* .form {
   padding: 20px;
   background-color: white;
   border-radius: 10px;
   margin: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} */
+.form-input {
+  padding: 10px;
 }
-.form input {
+.form-input input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;

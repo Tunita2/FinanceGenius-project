@@ -9,15 +9,25 @@ const getExpenseStatisticPage = async(req, res) => {
         let money = results[0]
         let infoList = catalogs;
 
+        // Lọc tiền thu nhập và chi tiêu
         let infoListExpense = catalogs.filter(item => item.money_status === 'expense');
         let infoListIncome = catalogs.filter(item => item.money_status === 'income');
+        
+        // Lặp qua mảng đã lọc và cộng dồn giá trị
+        let totalExpense = infoListExpense.reduce((sum, item) => sum + item.money, 0); 
+        let totalIncome = infoListIncome.reduce((sum, item) => sum + item.money, 0);
+
+        //Lưu dữ liệu tạm thời
+        req.session.ExpenseMoney = totalExpense
+        req.session.IncomeMoney = totalIncome
 
         res.render('expenseStatistic',{
             money : money,
             infoList : infoList,
             infoListExpense: infoListExpense ,
-            infoListIncome: infoListIncome
-
+            infoListIncome: infoListIncome,
+            totalExpense: totalExpense, 
+            totalIncome: totalIncome,
         })
     }catch(error){
         console.error(error)

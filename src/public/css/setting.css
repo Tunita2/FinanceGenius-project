@@ -1,6 +1,5 @@
 .top-bar {
   width: 100%;
-  padding: 10px;
   color: white;
   display: flex;
   align-items: center;
@@ -63,4 +62,21 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(20px);
 }
-
+.title:not(.is-spaced) + .subtitle {
+  width: 160px;
+}
+.title:not(:last-child) {
+  margin: 0;
+}
+.title.is-5 {
+  font-size: 1rem;
+}
+.tags {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+    0 0 0 1px rgba(10, 10, 10, 0.02);
+  color: #4a4a4a;
+  display: block;
+  padding: 1.25rem;
+}

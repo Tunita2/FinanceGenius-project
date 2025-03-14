@@ -4,15 +4,12 @@ const getSettingPage = async (req, res) => {
     try {
         const userId = req.session.storedId ;
 
-        console.log("UserID:", userId);
-
         if (!userId) {
             return res.send("Người dùng không được xác thực.");
         }
 
         const [results] = await connection.query(`SELECT * FROM persons WHERE id = ?`, [userId]);
 
-        console.log("Query Results:", results);
 
         if (results.length === 0) {
             return res.send("Không tìm thấy người dùng");
@@ -30,7 +27,6 @@ const getEditPhone = async (req, res) => {
     try {
        const userId = req.session.storedId ;
 
-        console.log("UserID:", userId);
 
         if (!userId) {
             return res.send("Người dùng không được xác thực.");

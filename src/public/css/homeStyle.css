@@ -106,20 +106,22 @@ body {
 .card-style {
   height: 100px;
   background-color: #4ecb71;
-}
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius:10px;
 
-.icon-catalog,
-.card-footer p {
-  color: white;
-  margin: 3px;
-  margin-top: 17px;
-  font-size: 19px;
-  font-family: Arial, sans-serif;
 }
-
-.plus {
-  border-radius: 20px;
-  color: #4ecb71;
+.btn-transaction {
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  display: inline-block;
+  border: solid 1px white;
+}
+.btn-transaction h2 {
+  padding-top: 13px;
 }
 
 .item {

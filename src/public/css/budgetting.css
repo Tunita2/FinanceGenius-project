@@ -43,10 +43,6 @@
     cursor: pointer; /*biến con trỏ chuột thành bàn tay khi rê chuột vào */
   }
   
-  main {
-    padding: 15px;
-  }
-  
   /* 2. Phần css cho main phần chính */
   .my-fund h2,
   .suggested-funds h2 {

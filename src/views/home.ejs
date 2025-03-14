@@ -32,19 +32,21 @@
         <h1>Hello <%= user.user_name %>
         </h1>
       </div>
-
-      <div class="card ml-4 mr-4 card-style">
-        <div class="card-footer">
-          <a href="/expense-statistic" class="card-footer-item">
-            <h1 class="icon-catalog"><i class="fa-solid fa-right-left"></i></h1>
-            <p>Thu chi</p>
-          </a>
-          <a href="#" class="card-footer-item">
-            <h1 class="icon-catalog"><i class="fa-solid fa-money-bill-1-wave"></i></h1>
-            <p>Nạp tiền</p>
-          </a>
+      <a href="/expense-statistic" class="card ml-4 mr-4 card-style">
+        <div class="btn-transaction">
+          <h2 class="subtitle">Thu</h2>
+          <h4 class="title is-4">
+            <%= (money && totalIncome) ? totalIncome.toLocaleString('vi-VN') : '0' %>đ
+          </h4>
         </div>
-      </div>
+        <div class="btn-transaction">
+          <h2 class="subtitle">Chi</h2>
+          <h4 class="title is-4">
+            <%= (money && totalExpense) ? totalExpense.toLocaleString('vi-VN') : '0' %>đ
+          </h4>
+        </div>
+      </a>
+
       <h4 class="title is-4 m-4">Tiện ích</h4>
       <section class="section is-large ">
         <div class="columns is-mobile mb-5">

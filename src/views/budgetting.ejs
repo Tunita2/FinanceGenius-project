@@ -5,76 +5,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tạo Quỹ</title>
+  <link rel="stylesheet" href="/css/responsives.css">
   <link rel="stylesheet" href="/css/budgetting.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
 </head>
 
 <body>
   <!-- Phần đầu : Tạo quỹ -->
-  <header>
-    <div class="header-container">
-      <button class="back-btn" onclick="window.location.href='/'"><i class="bi bi-arrow-left"></i></button>
-      <h1>Tạo quỹ</h1>
-      <button class="settings-btn"><i class="bi bi-gear"></i></button>
-    </div>
-  </header>
-
-  <!-- Phần chính: Hoạt động tạo quỹ -->
-  <main>
-    <form action="/created-budget" , method="GET">
-      <section class="my-fund">
-        <div class="title_first">
-          <h2>Quỹ của tôi</h2>
-          <a href="/budget-create">
-            <div class="add-fund-btn">+ Tạo quỹ (<%= totalBudgets %>/10)</div>
-          </a>
+  <div class="box">
+    <div class="form content-wrapper">
+      <header>
+        <div class="header-container">
+          <button class="back-btn" onclick="window.location.href='/'"><i class="bi bi-arrow-left"></i></button>
+          <h1>Tạo quỹ</h1>
+          <button class="settings-btn"><i class="bi bi-gear"></i></button>
         </div>
-    </form>
+      </header>
 
-    <% listBudget.forEach(function(budget) { %>
-      <form action="/budget-available/<%= budget.budget_id %>" , method="GET"></form>
-      <a href="/budget-available/<%= budget.budget_id %>" class="fund-card-link" style="text-decoration: none;">
-        <div class="fund-card">
-          <div class="block_content_img">
-            <span class="fund-label">Chủ quỹ</span>
-            <img src="/images/anh_restaurant.png" alt="Nhà hàng" class="fund-image" />
-            <div class="title_fund">
-              <%= budget.budget_name %>
+      <!-- Phần chính: Hoạt động tạo quỹ -->
+      <main>
+        <form action="/created-budget" , method="GET">
+          <section class="my-fund">
+            <div class="title_first">
+              <h2>Quỹ của tôi</h2>
+              <a href="/budget-create">
+                <div class="add-fund-btn">+ Tạo quỹ (<%= totalBudgets %>/10)</div>
+              </a>
             </div>
-          </div>
+        </form>
 
-          <div class="progress-bar">
-            <div class="progress" style="width: 20%"></div>
-          </div>
-          <p class="fund-amount">
-            <%= budget.budget_amount.toLocaleString('vi-VN') %>
-          </p>
-        </div>
-      </a>
-      </form>
-      <% }); %>
+        <% listBudget.forEach(function(budget) { %>
+          <form action="/budget-available/<%= budget.budget_id %>" , method="GET"></form>
+          <a href="/budget-available/<%= budget.budget_id %>" class="fund-card-link" style="text-decoration: none;">
+            <div class="fund-card">
+              <div class="block_content_img">
+                <span class="fund-label">Chủ quỹ</span>
+                <img src="/images/anh_restaurant.png" alt="Nhà hàng" class="fund-image" />
+                <div class="title_fund">
+                  <%= budget.budget_name %>
+                </div>
+              </div>
 
-        </section>
+              <div class="progress-bar">
+                <div class="progress" style="width: 20%"></div>
+              </div>
+              <p class="fund-amount">
+                <%= budget.budget_amount.toLocaleString('vi-VN') %>
+              </p>
+            </div>
+          </a>
+          </form>
+          <% }); %>
 
-      <section class="suggested-funds">
-        <h2>Các gợi ý tạo quỹ khác</h2>
-        <div class="fund-option personal">⭐ Mở quỹ cá nhân</div>
-        <div class="fund-option couple">❤️ Mở quỹ với người yêu</div>
-        <div class="fund-option friends">👥 Mở quỹ với bạn bè</div>
-        <div class="fund-option work">💼 Mở quỹ với đồng nghiệp</div>
-      </section>
+            </section>
 
-        <section class="help-section">
-          <button class="help-btn">📖 Hướng dẫn chi tiêu</button>
-          <button class="help-btn">💰 Hạn mức quỹ</button>
-        </section>
+            <section class="suggested-funds">
+              <h2>Các gợi ý tạo quỹ khác</h2>
+              <div class="fund-option personal">⭐ Mở quỹ cá nhân</div>
+              <div class="fund-option couple">❤️ Mở quỹ với người yêu</div>
+              <div class="fund-option friends">👥 Mở quỹ với bạn bè</div>
+              <div class="fund-option work">💼 Mở quỹ với đồng nghiệp</div>
+            </section>
 
-  </main>
+            <section class="help-section">
+              <button class="help-btn">📖 Hướng dẫn chi tiêu</button>
+              <button class="help-btn">💰 Hạn mức quỹ</button>
+            </section>
 
-  <!-- Lớp phủ nền mờ
+      </main>
+
+      <!-- Lớp phủ nền mờ
     <div class="overlay"></div> -->
 
-  <!-- Hộp thoại đặt tên quỹ
+      <!-- Hộp thoại đặt tên quỹ
     <form action="/created-budget" , method="POST">
       <div class="fund-popup">
         <h3>Đặt tên cho Quỹ của bạn</h3>
@@ -109,9 +112,11 @@
           <div class="confirm-btn">Xác nhận</div>
         </a> -->
 
+      </form>
+    </div>
   </div>
-  </form>
   <script src="/js/budgetting.js"></script>
+
 </body>
 
 </html>
