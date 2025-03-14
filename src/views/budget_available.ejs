@@ -21,17 +21,19 @@
         </div>
       </header>
 
+      <% detailBudget.forEach(function(budget) { %>
       <div class="card">
-        <p class="title_fund_detail">Tích lũy cho tương lai</p>
-        <p class="balance">0đ</p>
-        <p class="descrip">Tạo mục tiêu và thực hiện ước mơ nhé</p>
-        <!-- <div class="buttons">
-          <button>+ Góp quỹ</button>
-          <button>Đặt mục tiêu</button>
-        </div> -->
+        <p class="title_fund_detail">Tên quỹ: <%= budget.budget_name %></p>
+        <p class="balance"><%= budget.budget_amount.toLocaleString('vi-VN') %></p>
+        <p class="descrip"><%= budget.budget_description %></p>
+        <p class="descrip date">Ngày tạo: <%= budget.budget_date ? new Date(budget.budget_date).toISOString().split('T')[0] : 'Không có dữ liệu' %></p>
+        <div class="buttons">
+          <button>Chỉnh sửa</button>           
+          <button class="deleteBud" data-id="<%= budget.budget_id %>">Xóa quỹ</button>
+        </div>
       </div>
-
-      <form action="/created-budget" , method="POST">
+      <% }); %>
+      <!-- <form action="/created-budget" , method="POST">
         <div class="form">
           <label>Nhập tên</label>
           <input type="text" placeholder="Nhập tên quỹ" name="fundName" />
@@ -43,7 +45,7 @@
           <input type="text" placeholder="Nhập mô tả" name="fundDes" />
           <button class="confirm-btn">Xác nhận</button>
         </div>
-      </form>
+      </form> -->
     </div>
     <script src="/js/budgetting.js"></script>
   </body>
