@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tạo Quỹ</title>
+    <link rel="stylesheet" href="/css/create_fund.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Phần đầu : Tạo quỹ -->
+      <header>
+        <div class="header-container">
+          <button class="back-btn"><i class="bi bi-arrow-left"></i></button>
+          <h1>Tạo quỹ</h1>
+          <button class="settings-btn"><i class="bi bi-gear"></i></button>
+        </div>
+      </header>
+
+      <% detailBudget.forEach(function(budget) { %>
+      <div class="card">
+        <p class="title_fund_detail">Tên quỹ: <%= budget.budget_name %></p>
+        <p class="balance"><%= budget.budget_amount.toLocaleString('vi-VN') %></p>
+        <p class="descrip"><%= budget.budget_description %></p>
+        <p class="descrip date">Ngày tạo: <%= budget.budget_date ? new Date(budget.budget_date).toISOString().split('T')[0] : 'Không có dữ liệu' %></p>
+        <div class="buttons">
+          <button>Chỉnh sửa</button>           
+          <button class="deleteBud" data-id="<%= budget.budget_id %>">Xóa quỹ</button>
+        </div>
+      </div>
+      <% }); %>
+      <!-- <form action="/created-budget" , method="POST">
+        <div class="form">
+          <label>Nhập tên</label>
+          <input type="text" placeholder="Nhập tên quỹ" name="fundName" />
+          <label>Nhập tiền</label>
+          <input type="number" placeholder="Nhập số tiền" name="fundAmount" />
+          <label>Chọn ngày</label>
+          <input type="date" name="fundDate" />
+          <label>Mô tả</label>
+          <input type="text" placeholder="Nhập mô tả" name="fundDes" />
+          <button class="confirm-btn">Xác nhận</button>
+        </div>
+      </form> -->
+    </div>
+    <script src="/js/budgetting.js"></script>
+  </body>
+</html>

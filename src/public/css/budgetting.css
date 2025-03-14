@@ -10,6 +10,10 @@
     height: auto;
   } */
   
+  a{
+    text-decoration: none !important;
+  }
+
   body {
     background-color: #f4f7f9;
     padding-bottom: 20px;
@@ -23,6 +27,8 @@
     background-color: #166d3b; /* màu nền là màu xanh*/
     color: white; /* chữ trắng*/
     padding: 15px; /*tạo khoảng cách từ nội dung đến viền là 15px*/
+  }
+  .header-container h1{
   }
   
   /*1.1 Phần css cho nút quay lại(mũi tên) và nút cài đặt  */

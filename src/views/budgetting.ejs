@@ -26,28 +26,35 @@
         <div class="title_first">
           <h2>Quỹ của tôi</h2>
           <a href="/budget-create">
-            <div class="add-fund-btn">+ Tạo quỹ (1/10)</div>
+            <div class="add-fund-btn">+ Tạo quỹ (<%= totalBudgets %>/10)</div>
           </a>
         </div>
-        <% listBudget.forEach(function(budget) { %>
-          <div class="fund-card">
-            <div class="block_content_img">
-              <span class="fund-label">Chủ quỹ</span>
-              <img src="/images/anh_restaurant.png" alt="Nhà hàng" class="fund-image" />
-              <div class="title_fund">
-                <%= budget.budget_name %>
-              </div>
-            </div>
+    </form>
 
-            <div class="progress-bar">
-              <div class="progress" style="width: 20%"></div>
+    <% listBudget.forEach(function(budget) { %>
+      <form action="/budget-available/<%= budget.budget_id %>" , method="GET"></form>
+      <a href="/budget-available/<%= budget.budget_id %>" class="fund-card-link" style="text-decoration: none;">
+        <div class="fund-card">
+          <div class="block_content_img">
+            <span class="fund-label">Chủ quỹ</span>
+            <img src="/images/anh_restaurant.png" alt="Nhà hàng" class="fund-image" />
+            <div class="title_fund">
+              <%= budget.budget_name %>
             </div>
-            <p class="fund-amount">
-              <%= budget.budget_amount %>
-            </p>
           </div>
-          <% }); %>
-      </section>
+
+          <div class="progress-bar">
+            <div class="progress" style="width: 20%"></div>
+          </div>
+          <p class="fund-amount">
+            <%= budget.budget_amount.toLocaleString('vi-VN') %>
+          </p>
+        </div>
+      </a>
+      </form>
+      <% }); %>
+
+        </section>
 
       <section class="suggested-funds">
         <h2>Các gợi ý tạo quỹ khác</h2>
@@ -57,11 +64,11 @@
         <div class="fund-option work">💼 Mở quỹ với đồng nghiệp</div>
       </section>
 
-      <section class="help-section">
-        <button class="help-btn">📖 Hướng dẫn chi tiêu</button>
-        <button class="help-btn">💰 Hạn mức quỹ</button>
-      </section>
-    </form>
+        <section class="help-section">
+          <button class="help-btn">📖 Hướng dẫn chi tiêu</button>
+          <button class="help-btn">💰 Hạn mức quỹ</button>
+        </section>
+
   </main>
 
   <!-- Lớp phủ nền mờ

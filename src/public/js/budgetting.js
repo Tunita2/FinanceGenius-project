@@ -4,12 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.history.back();
   });
 
-  // Xử lý nút cài đặt (hiện thông báo)
-  document
-    .querySelector(".settings-btn")
-    .addEventListener("click", function () {
-      alert("Chức năng cài đặt đang phát triển!");
-    });
 
   // Cập nhật tiến độ quỹ
   function updateProgress(amount, goal) {
@@ -46,8 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
   overlay.addEventListener("click", closePopup);
   confirmBtn.addEventListener("click", closePopup);
 
-  
-  
   // Hàm đóng hộp thoại
   function closePopup() {
     fundPopup.classList.remove("show");
@@ -68,7 +60,6 @@ document.querySelectorAll(".fund-option1").forEach((option) => {
   });
 });
 
-
 function addFunds() {
   alert("Tính năng Góp quỹ đang được phát triển!");
 }
@@ -77,14 +68,53 @@ function confirmTransaction() {
   let amount = document.getElementById("amount").value;
   let date = document.getElementById("date").value;
   let description = document.getElementById("description").value;
-  
+
   if (!amount || !date || !description) {
-      alert("Vui lòng điền đầy đủ thông tin!");
-      return;
+    alert("Vui lòng điền đầy đủ thông tin!");
+    return;
   }
-  
-  alert(`Đã thêm giao dịch:\nSố tiền: ${amount}đ\nNgày: ${date}\nMô tả: ${description}`);
+
+  alert(
+    `Đã thêm giao dịch:\nSố tiền: ${amount}đ\nNgày: ${date}\nMô tả: ${description}`
+  );
   document.getElementById("amount").value = "";
   document.getElementById("date").value = "";
   document.getElementById("description").value = "";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".deleteBud").forEach((button) => {
+    button.addEventListener("click", function () {
+      let budgetId = this.getAttribute("data-id");
+      if (confirm("Bạn có chắc muốn xóa quỹ này không?")) {
+        fetch("/delete-budget", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ budgetId: budgetId }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert("Xóa quỹ thành công!");
+              location.reload(); // Tải lại trang sau khi xóa
+            } else {
+              alert("Lỗi khi xóa quỹ!");
+            }
+          })
+          .catch((error) => {
+            console.error("Lỗi:", error);
+          });
+      }
+    });
+  });
+});
+
+document.querySelectorAll(".fund-amount").forEach((el) => {
+  el.textContent = Number(el.textContent).toLocaleString("vi-VN") + " VND";
+});
+
+document.querySelectorAll(".balance").forEach((el) => {
+  el.textContent = Number(el.textContent).toLocaleString("vi-VN") + " VND";
+});
