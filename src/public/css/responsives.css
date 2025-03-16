@@ -10,7 +10,8 @@ body {
   place-content: center;
   height: 100vh;
   width: 100vw;
-  background: rgb(199, 204, 233);
+  background: url(https://storage.googleapis.com/bukas-website-v3-prd/website_v3/images/Bukas.ph_Article_Image_5_Good_Money_Habits_To_.width-800.png)
+    no-repeat center/cover;
   overflow: hidden;
   color: white;
 }

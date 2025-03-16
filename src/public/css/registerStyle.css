@@ -76,7 +76,6 @@ html{
     color: white !important;
 } */
 
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 * {
@@ -91,7 +90,8 @@ body {
   place-content: center;
   height: 100vh;
   width: 100vw;
-  background: rgb(199, 204, 233);
+  background: url(https://storage.googleapis.com/bukas-website-v3-prd/website_v3/images/Bukas.ph_Article_Image_5_Good_Money_Habits_To_.width-800.png)
+    no-repeat center/cover;
   overflow: hidden;
   color: white;
 }
@@ -150,7 +150,7 @@ body {
   font-weight: 500;
   text-align: center;
   letter-spacing: 0.1em;
-  font-size: 20px
+  font-size: 20px;
 }
 
 .inputbox {
@@ -236,7 +236,6 @@ input[type="submit"] {
 img {
   width: 30px;
   margin-right: 10px;
-
 }
 .tag-icon {
   width: 100%;
@@ -249,10 +248,10 @@ img {
   background-color: var(--color);
   cursor: pointer;
 }
-.login-link{
-    color: var(--color);
+.login-link {
+  color: var(--color);
 }
-.click-to-login{
-    text-align: center;
-    margin-top: 5px;
+.click-to-login {
+  text-align: center;
+  margin-top: 5px;
 }
